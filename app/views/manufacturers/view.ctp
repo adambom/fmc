@@ -11,6 +11,11 @@
 			<?php echo $html->link($manufacturer['Company']['name'], array('controller' => 'companies', 'action' => 'view', $manufacturer['Company']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $manufacturer['Manufacturer']['name']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

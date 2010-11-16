@@ -1,5 +1,5 @@
 <?php
-/* Part Fixture generated on: 2010-11-10 22:11:03 : 1289446083 */
+/* Part Fixture generated on: 2010-11-11 23:11:44 : 1289535224 */
 class PartFixture extends CakeTestFixture {
 	var $name = 'Part';
 

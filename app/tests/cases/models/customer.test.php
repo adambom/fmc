@@ -1,9 +1,9 @@
 <?php
-/* Customer Test cases generated on: 2010-11-10 22:11:10 : 1289444890*/
+/* Customer Test cases generated on: 2010-11-11 23:11:35 : 1289535215*/
 App::import('Model', 'Customer');
 
 class CustomerTestCase extends CakeTestCase {
-	var $fixtures = array('app.customer', 'app.company', 'app.manufacturer', 'app.vendor', 'app.employee', 'app.companies_employee', 'app.job', 'app.opportunity');
+	var $fixtures = array('app.customer', 'app.company', 'app.manufacturer', 'app.part', 'app.vendor', 'app.productreturn', 'app.productreturns_part', 'app.opportunity', 'app.jobcategory', 'app.job', 'app.jobtype', 'app.location', 'app.jobs_location', 'app.stage', 'app.opportunities_vendor', 'app.partcategory', 'app.partsubcategory', 'app.employee', 'app.companies_employee');
 
 	function startTest() {
 		$this->Customer =& ClassRegistry::init('Customer');

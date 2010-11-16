@@ -29,7 +29,7 @@ foreach ($opportunities as $opportunity):
 			<?php echo $opportunity['Opportunity']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($opportunity['Customer']['id'], array('controller' => 'customers', 'action' => 'view', $opportunity['Customer']['id'])); ?>
+			<?php echo $html->link($opportunity['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $opportunity['Customer']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($opportunity['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $opportunity['Jobcategory']['id'])); ?>

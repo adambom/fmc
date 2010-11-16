@@ -1,7 +1,6 @@
 <?php
 class Part extends AppModel {
 	var $name = 'Part';
-	var $displayField = 'name';
 	var $validate = array(
 		'vendor_id' => array(
 			'numeric' => array('rule' => array('numeric')),
@@ -13,11 +12,7 @@ class Part extends AppModel {
 			'numeric' => array('rule' => array('numeric')),
 		),
 		'name' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
-		),
-		'description' => array(
-			'maxlength' => array('rule' => array('maxlength')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

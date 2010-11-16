@@ -5,6 +5,7 @@
 	<?php
 		echo $form->input('id');
 		echo $form->input('company_id');
+		echo $form->input('name');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

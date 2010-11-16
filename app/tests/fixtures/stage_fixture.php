@@ -1,5 +1,5 @@
 <?php
-/* Stage Fixture generated on: 2010-11-10 22:11:18 : 1289445678 */
+/* Stage Fixture generated on: 2010-11-11 23:11:45 : 1289535225 */
 class StageFixture extends CakeTestFixture {
 	var $name = 'Stage';
 

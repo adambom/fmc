@@ -1,5 +1,5 @@
 <?php
-/* Partcategory Test cases generated on: 2010-11-10 22:11:58 : 1289446138*/
+/* Partcategory Test cases generated on: 2010-11-11 23:11:44 : 1289535224*/
 App::import('Model', 'Partcategory');
 
 class PartcategoryTestCase extends CakeTestCase {

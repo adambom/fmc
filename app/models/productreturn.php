@@ -1,7 +1,6 @@
 <?php
 class Productreturn extends AppModel {
 	var $name = 'Productreturn';
-	var $displayField = 'vendor_id';
 	var $validate = array(
 		'vendor_id' => array(
 			'numeric' => array('rule' => array('numeric')),

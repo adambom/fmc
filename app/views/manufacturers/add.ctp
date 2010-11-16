@@ -4,6 +4,7 @@
  		<legend><?php __('Add Manufacturer');?></legend>
 	<?php
 		echo $form->input('company_id');
+		echo $form->input('name');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

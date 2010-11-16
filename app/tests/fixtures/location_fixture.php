@@ -1,5 +1,5 @@
 <?php
-/* Location Fixture generated on: 2010-11-10 22:11:39 : 1289445939 */
+/* Location Fixture generated on: 2010-11-11 23:11:42 : 1289535222 */
 class LocationFixture extends CakeTestFixture {
 	var $name = 'Location';
 

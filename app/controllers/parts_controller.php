@@ -5,7 +5,7 @@ class PartsController extends AppController {
 	var $helpers = array('Html', 'Form');
 
 	function index() {
-		$this->Part->recursive = 0;
+		$this->Part->recursive = 1;
 		$this->set('parts', $this->paginate());
 	}
 

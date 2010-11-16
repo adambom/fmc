@@ -11,6 +11,11 @@
 			<?php echo $html->link($customer['Company']['name'], array('controller' => 'companies', 'action' => 'view', $customer['Company']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $customer['Customer']['name']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

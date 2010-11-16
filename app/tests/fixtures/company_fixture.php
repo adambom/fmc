@@ -1,5 +1,5 @@
 <?php
-/* Company Fixture generated on: 2010-11-10 22:11:33 : 1289444793 */
+/* Company Fixture generated on: 2010-11-11 23:11:31 : 1289535211 */
 class CompanyFixture extends CakeTestFixture {
 	var $name = 'Company';
 

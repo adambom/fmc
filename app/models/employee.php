@@ -1,22 +1,19 @@
 <?php
 class Employee extends AppModel {
 	var $name = 'Employee';
-	var $displayField = 'fname';
 	var $validate = array(
 		'fname' => array(
 			'notempty' => array('rule' => array('notempty')),
-			'alphanumeric' => array('rule' => array('alphanumeric')),
 		),
 		'lname' => array(
 			'notempty' => array('rule' => array('notempty')),
-			'alphanumeric' => array('rule' => array('alphanumeric')),
 		),
 		'phone' => array(
-			'phone' => array('rule' => array('phone')),
+			'notempty' => array('rule' => array('notempty')),
 		),
-		/*'email' => array(
+		'email' => array(
 			'email' => array('rule' => array('email')),
-		),*/
+		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

@@ -1,36 +1,27 @@
 <?php
 class Location extends AppModel {
 	var $name = 'Location';
-	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
-		),
-		'description' => array(
-			'maxlength' => array('rule' => array('maxlength')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 		'address1' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
 			'notempty' => array('rule' => array('notempty')),
 		),
 		'address2' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 		'city' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 		'state' => array(
-			'alphanumeric' => array('rule' => array('alphanumeric')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 		'zip' => array(
-			'postal' => array('rule' => array('postal')),
+			'numeric' => array('rule' => array('numeric')),
 		),
 		'phone' => array(
-			'phone' => array('rule' => array('phone')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

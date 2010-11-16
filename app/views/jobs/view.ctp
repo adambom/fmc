@@ -8,7 +8,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Customer'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($job['Customer']['id'], array('controller' => 'customers', 'action' => 'view', $job['Customer']['id'])); ?>
+			<?php echo $html->link($job['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $job['Customer']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Jobtype'); ?></dt>

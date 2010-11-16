@@ -29,10 +29,10 @@ foreach ($parts as $part):
 			<?php echo $part['Part']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($part['Vendor']['id'], array('controller' => 'vendors', 'action' => 'view', $part['Vendor']['id'])); ?>
+			<?php echo $html->link($part['Vendor']['name'], array('controller' => 'vendors', 'action' => 'view', $part['Vendor']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $html->link($part['Manufacturer']['id'], array('controller' => 'manufacturers', 'action' => 'view', $part['Manufacturer']['id'])); ?>
+			<?php echo $html->link($part['Manufacturer']['name'], array('controller' => 'manufacturers', 'action' => 'view', $part['Manufacturer']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($part['Partcategory']['name'], array('controller' => 'partcategories', 'action' => 'view', $part['Partcategory']['id'])); ?>

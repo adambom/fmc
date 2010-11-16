@@ -29,7 +29,7 @@ foreach ($jobs as $job):
 			<?php echo $job['Job']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($job['Customer']['id'], array('controller' => 'customers', 'action' => 'view', $job['Customer']['id'])); ?>
+			<?php echo $html->link($job['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $job['Customer']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?>

@@ -1,15 +1,9 @@
 <?php
 class Partcategory extends AppModel {
 	var $name = 'Partcategory';
-	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),
-			'alphanumeric' => array('rule' => array('alphanumeric')),
-			'maxlength' => array('rule' => array('maxlength')),
-		),
-		'description' => array(
-			'maxlength' => array('rule' => array('maxlength')),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

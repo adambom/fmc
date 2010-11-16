@@ -1,7 +1,6 @@
 <?php
 class Company extends AppModel {
 	var $name = 'Company';
-	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),

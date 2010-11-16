@@ -8,7 +8,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Customer'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($opportunity['Customer']['id'], array('controller' => 'customers', 'action' => 'view', $opportunity['Customer']['id'])); ?>
+			<?php echo $html->link($opportunity['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $opportunity['Customer']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Jobcategory'); ?></dt>
@@ -56,6 +56,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Company Id'); ?></th>
+		<th><?php __('Name'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -69,6 +70,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $vendor['id'];?></td>
 			<td><?php echo $vendor['company_id'];?></td>
+			<td><?php echo $vendor['name'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'vendors', 'action' => 'view', $vendor['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'vendors', 'action' => 'edit', $vendor['id'])); ?>

@@ -1,9 +1,9 @@
 <?php
-/* Employee Test cases generated on: 2010-11-10 22:11:54 : 1289445114*/
+/* Employee Test cases generated on: 2010-11-11 23:11:35 : 1289535215*/
 App::import('Model', 'Employee');
 
 class EmployeeTestCase extends CakeTestCase {
-	var $fixtures = array('app.employee', 'app.company', 'app.customer', 'app.job', 'app.opportunity', 'app.manufacturer', 'app.part', 'app.vendor', 'app.productreturn', 'app.opportunities_vendor', 'app.companies_employee');
+	var $fixtures = array('app.employee', 'app.company', 'app.customer', 'app.job', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.vendor', 'app.part', 'app.manufacturer', 'app.partcategory', 'app.partsubcategory', 'app.productreturn', 'app.productreturns_part', 'app.opportunities_vendor', 'app.location', 'app.jobs_location', 'app.companies_employee');
 
 	function startTest() {
 		$this->Employee =& ClassRegistry::init('Employee');

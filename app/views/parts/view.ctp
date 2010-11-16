@@ -8,12 +8,12 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Vendor'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($part['Vendor']['id'], array('controller' => 'vendors', 'action' => 'view', $part['Vendor']['id'])); ?>
+			<?php echo $html->link($part['Vendor']['name'], array('controller' => 'vendors', 'action' => 'view', $part['Vendor']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Manufacturer'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($part['Manufacturer']['id'], array('controller' => 'manufacturers', 'action' => 'view', $part['Manufacturer']['id'])); ?>
+			<?php echo $html->link($part['Manufacturer']['name'], array('controller' => 'manufacturers', 'action' => 'view', $part['Manufacturer']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Partcategory'); ?></dt>

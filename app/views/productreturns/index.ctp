@@ -25,7 +25,7 @@ foreach ($productreturns as $productreturn):
 			<?php echo $productreturn['Productreturn']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($productreturn['Vendor']['id'], array('controller' => 'vendors', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
+			<?php echo $html->link($productreturn['Vendor']['name'], array('controller' => 'vendors', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $productreturn['Productreturn']['id'])); ?>

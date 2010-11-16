@@ -36,6 +36,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Company Id'); ?></th>
+		<th><?php __('Name'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -49,6 +50,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $customer['id'];?></td>
 			<td><?php echo $customer['company_id'];?></td>
+			<td><?php echo $customer['name'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'customers', 'action' => 'view', $customer['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'customers', 'action' => 'edit', $customer['id'])); ?>
@@ -72,6 +74,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Company Id'); ?></th>
+		<th><?php __('Name'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -85,6 +88,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $manufacturer['id'];?></td>
 			<td><?php echo $manufacturer['company_id'];?></td>
+			<td><?php echo $manufacturer['name'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'manufacturers', 'action' => 'view', $manufacturer['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'manufacturers', 'action' => 'edit', $manufacturer['id'])); ?>
@@ -108,6 +112,7 @@
 	<tr>
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Company Id'); ?></th>
+		<th><?php __('Name'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -121,6 +126,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $vendor['id'];?></td>
 			<td><?php echo $vendor['company_id'];?></td>
+			<td><?php echo $vendor['name'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'vendors', 'action' => 'view', $vendor['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'vendors', 'action' => 'edit', $vendor['id'])); ?>

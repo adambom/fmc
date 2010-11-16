@@ -10,6 +10,7 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('company_id');?></th>
+	<th><?php echo $paginator->sort('name');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -26,6 +27,9 @@ foreach ($manufacturers as $manufacturer):
 		</td>
 		<td>
 			<?php echo $html->link($manufacturer['Company']['name'], array('controller' => 'companies', 'action' => 'view', $manufacturer['Company']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $manufacturer['Manufacturer']['name']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $manufacturer['Manufacturer']['id'])); ?>

@@ -1,9 +1,9 @@
 <?php
 class Jobcategory extends AppModel {
 	var $name = 'Jobcategory';
-	var $displayField = 'name';
 	var $validate = array(
-		'description' => array(
+		'name' => array(
+			'notempty' => array('rule' => array('notempty')),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
