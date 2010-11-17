@@ -34,7 +34,7 @@
 	<?php
 		echo $html->meta('icon');
 
-		echo $html->css('cake.generic');
+		echo $html->css('fmc.generic');
 
 		echo $scripts_for_layout;
 	?>
@@ -42,7 +42,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<h1><?php echo $html->link(__('FMC Technologies', true), '/'); ?></h1>
 		</div>
 		<div id="content">
 
