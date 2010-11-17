@@ -104,6 +104,19 @@ ul, li {
 	background: #023866;
 	text-decoration: underline;
 }
+#navigation ul li {
+	display:inline;
+	list-style-type:none;
+	margin:0px 6px;
+	font-size:1.2em;
+}
+#navigation ul li a {
+	padding:10px;
+	text-decoration:none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
 #content{
 	background: #fff;
 	clear: both;

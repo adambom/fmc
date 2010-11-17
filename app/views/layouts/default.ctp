@@ -44,6 +44,15 @@
 		<div id="header">
 			<h1><?php echo $html->link(__('FMC Technologies', true), '/'); ?></h1>
 		</div>
+		<div id="navigation">
+			<ul>
+				<li><?php echo $html->link(__('Home', true), '/'); ?></li>
+				<li><?php echo $html->link('Companies', array('controller'=>'companies')); ?></li>
+				<li><?php echo $html->link('Employees', array('controller'=>'employees')); ?></li>
+				<li><?php echo $html->link('Jobs', array('controller'=>'jobs')); ?></li>
+				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities')); ?></li>
+			</ul>
+		</div>
 		<div id="content">
 
 			<?php $session->flash(); ?>
