@@ -34,9 +34,11 @@
 	<?php
 		echo $html->meta('icon');
 
-		echo $html->css('fmc.generic');
+		echo $html->css(array('fmc.generic', 'navigation'));
 
 		echo $scripts_for_layout;
+		
+		echo $javascript->link('navigation');
 	?>
 </head>
 <body>
@@ -47,11 +49,24 @@
 		<div id="navigation">
 			<ul>
 				<li><?php echo $html->link(__('Home', true), '/'); ?></li>
-				<li><?php echo $html->link('Companies', array('controller'=>'companies')); ?></li>
+				<li><?php echo $html->link('Companies', '#', array('rel'=>'dropmenu1')); ?></li>
 				<li><?php echo $html->link('Employees', array('controller'=>'employees')); ?></li>
 				<li><?php echo $html->link('Jobs', array('controller'=>'jobs')); ?></li>
 				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities')); ?></li>
 			</ul>
+			<!--Companies drop down menu -->                                                   
+			<div id="dropmenu1" class="dropmenudiv_a">
+				<?php
+					echo $html->link('All Companies', array('controller'=>'companies'));
+					echo $html->link('Customers', array('controller'=>'customers'));
+					echo $html->link('Vendors', array('controller'=>'vendors'));
+					echo $html->link('Manufacturers', array('controller'=>'manufacturers'));
+				?>
+			</div>
+
+			<script type="text/javascript">
+				tabdropdown.init("navigation", 3)
+			</script>
 		</div>
 		<div id="content">
 

@@ -1,0 +1,37 @@
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv_a{
+	position:absolute;
+	top: 0;
+	border: 1px solid #023866;; /*THEME CHANGE HERE*/
+	border-top-width: 8px; /*Top border width. Should match height of .ddcolortabsline above*/
+	border-bottom-width: 0;
+	font-size:16px;
+	color: #023866;
+	line-height:18px;
+	z-index:100;
+	background-color: white;
+	width: 200px;
+	visibility: hidden;
+}
+
+.dropmenudiv_a a{
+	width: auto;
+	display: block;
+	text-indent: 5px;
+	border-top: 0 solid #678b3f;
+	border-bottom: 1px solid #678b3f; /*THEME CHANGE HERE*/
+	padding: 2px 0;
+	text-decoration: none;
+	color: black;
+}
+
+* html .dropmenudiv_a a{ /*IE only hack*/
+	width: 100%;
+}
+
+.dropmenudiv_a a:hover{ /*THEME CHANGE HERE*/
+	background-color: #007C71;
+	color: white;
+}
+

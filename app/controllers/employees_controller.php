@@ -2,7 +2,7 @@
 class EmployeesController extends AppController {
 
 	var $name = 'Employees';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form', 'Javascript');
 
 	function index() {
 		$this->Employee->recursive = 0;
