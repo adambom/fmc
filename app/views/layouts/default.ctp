@@ -28,7 +28,7 @@
 <head>
 	<?php echo $html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __('FMC Technologies: Advanced Energy Solutions'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
