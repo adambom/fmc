@@ -5,6 +5,19 @@
 	<?php
 		echo $form->input('company_id');
 		echo $form->input('name');
+		echo $form->input('address1');
+		echo $form->input('address2');
+		echo $form->input('city');
+		echo $form->input('state');
+		echo $form->input('zip');
+		echo $form->input('country');
+		echo $form->input('phone');
+		echo $form->input('fax');
+		echo $form->input('url');
+		echo $form->input('description');
+		echo $form->input('short_description');
+		echo $form->input('created_date');
+		echo $form->input('updated_date');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

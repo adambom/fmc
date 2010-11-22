@@ -1,14 +1,7 @@
 <?php
 class Customer extends AppModel {
 	var $name = 'Customer';
-	var $validate = array(
-		'company_id' => array(
-			'numeric' => array('rule' => array('numeric')),
-		),
-		'name' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-	);
+	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
