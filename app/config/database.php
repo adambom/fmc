@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => '',
+		'password' => 'Bug3!y0r',
 		'database' => 'fmc',
 	);
 	var $test = array(

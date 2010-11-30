@@ -1,4 +1,4 @@
-<div class="employees view">
+<div class="employee view">
 <h2><?php  __('Employee');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
@@ -122,7 +122,7 @@
 	<ul>
 		<li><?php echo $html->link(__('Edit Employee', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
 		<li><?php echo $html->link(__('Delete Employee', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
-		<li><?php echo $html->link(__('List Employees', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('List Employee', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Employee', true), array('action' => 'add')); ?> </li>
 	</ul>
 </div>

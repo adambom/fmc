@@ -11,6 +11,14 @@ echo $paginator->counter(array(
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('company_id');?></th>
 	<th><?php echo $paginator->sort('name');?></th>
+	<th><?php echo $paginator->sort('contactname');?></th>
+	<th><?php echo $paginator->sort('address');?></th>
+	<th><?php echo $paginator->sort('city');?></th>
+	<th><?php echo $paginator->sort('zip');?></th>
+	<th><?php echo $paginator->sort('state');?></th>
+	<th><?php echo $paginator->sort('phone');?></th>
+	<th><?php echo $paginator->sort('fax');?></th>
+	<th><?php echo $paginator->sort('paymentterms');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -30,6 +38,30 @@ foreach ($vendors as $vendor):
 		</td>
 		<td>
 			<?php echo $vendor['Vendor']['name']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['contactname']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['address']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['city']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['zip']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['state']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['phone']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['fax']; ?>
+		</td>
+		<td>
+			<?php echo $vendor['Vendor']['paymentterms']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $vendor['Vendor']['id'])); ?>

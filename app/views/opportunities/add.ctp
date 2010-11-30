@@ -8,6 +8,16 @@
 		echo $form->input('stage_id');
 		echo $form->input('name');
 		echo $form->input('description');
+		echo $form->input('shortdescription');
+		echo $form->input('owner');
+		echo $form->input('leadsource');
+		echo $form->input('amount');
+		echo $form->input('expamount');
+		echo $form->input('forecastedclosedate');
+		echo $form->input('actualclosedate');
+		echo $form->input('nextstep');
+		echo $form->input('customprobability');
+		echo $form->input('createddate');
 		echo $form->input('Vendor');
 	?>
 	</fieldset>

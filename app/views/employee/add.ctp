@@ -1,4 +1,4 @@
-<div class="employees form">
+<div class="employee form">
 <?php echo $form->create('Employee');?>
 	<fieldset>
  		<legend><?php __('Add Employee');?></legend>
@@ -31,6 +31,6 @@
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('List Employees', true), array('action' => 'index'));?></li>
+		<li><?php echo $html->link(__('List Employee', true), array('action' => 'index'));?></li>
 	</ul>
 </div>

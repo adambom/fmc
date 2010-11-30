@@ -14,6 +14,16 @@ echo $paginator->counter(array(
 	<th><?php echo $paginator->sort('stage_id');?></th>
 	<th><?php echo $paginator->sort('name');?></th>
 	<th><?php echo $paginator->sort('description');?></th>
+	<th><?php echo $paginator->sort('shortdescription');?></th>
+	<th><?php echo $paginator->sort('owner');?></th>
+	<th><?php echo $paginator->sort('leadsource');?></th>
+	<th><?php echo $paginator->sort('amount');?></th>
+	<th><?php echo $paginator->sort('expamount');?></th>
+	<th><?php echo $paginator->sort('forecastedclosedate');?></th>
+	<th><?php echo $paginator->sort('actualclosedate');?></th>
+	<th><?php echo $paginator->sort('nextstep');?></th>
+	<th><?php echo $paginator->sort('customprobability');?></th>
+	<th><?php echo $paginator->sort('createddate');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -42,6 +52,36 @@ foreach ($opportunities as $opportunity):
 		</td>
 		<td>
 			<?php echo $opportunity['Opportunity']['description']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['shortdescription']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['owner']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['leadsource']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['amount']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['expamount']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['forecastedclosedate']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['actualclosedate']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['nextstep']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['customprobability']; ?>
+		</td>
+		<td>
+			<?php echo $opportunity['Opportunity']['createddate']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $opportunity['Opportunity']['id'])); ?>

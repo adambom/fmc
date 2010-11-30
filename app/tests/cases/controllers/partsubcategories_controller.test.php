@@ -1,5 +1,5 @@
 <?php
-/* Partsubcategories Test cases generated on: 2010-11-11 23:11:50 : 1289535230*/
+/* Partsubcategories Test cases generated on: 2010-11-30 23:11:54 : 1291160634*/
 App::import('Controller', 'Partsubcategories');
 
 class TestPartsubcategoriesController extends PartsubcategoriesController {

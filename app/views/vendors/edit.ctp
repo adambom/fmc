@@ -6,6 +6,14 @@
 		echo $form->input('id');
 		echo $form->input('company_id');
 		echo $form->input('name');
+		echo $form->input('contactname');
+		echo $form->input('address');
+		echo $form->input('city');
+		echo $form->input('zip');
+		echo $form->input('state');
+		echo $form->input('phone');
+		echo $form->input('fax');
+		echo $form->input('paymentterms');
 		echo $form->input('Opportunity');
 	?>
 	</fieldset>

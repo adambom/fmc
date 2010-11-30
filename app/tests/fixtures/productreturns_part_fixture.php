@@ -1,5 +1,5 @@
 <?php
-/* ProductreturnsPart Fixture generated on: 2010-11-11 23:11:45 : 1289535225 */
+/* ProductreturnsPart Fixture generated on: 2010-11-30 23:11:25 : 1291160605 */
 class ProductreturnsPartFixture extends CakeTestFixture {
 	var $name = 'ProductreturnsPart';
 

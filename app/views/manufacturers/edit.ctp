@@ -6,6 +6,7 @@
 		echo $form->input('id');
 		echo $form->input('company_id');
 		echo $form->input('name');
+		echo $form->input('type');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

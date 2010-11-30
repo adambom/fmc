@@ -31,6 +31,56 @@
 			<?php echo $opportunity['Opportunity']['description']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Shortdescription'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['shortdescription']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Owner'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['owner']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Leadsource'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['leadsource']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Amount'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['amount']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Expamount'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['expamount']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Forecastedclosedate'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['forecastedclosedate']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Actualclosedate'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['actualclosedate']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nextstep'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['nextstep']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Customprobability'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['customprobability']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Createddate'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunity['Opportunity']['createddate']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -57,6 +107,14 @@
 		<th><?php __('Id'); ?></th>
 		<th><?php __('Company Id'); ?></th>
 		<th><?php __('Name'); ?></th>
+		<th><?php __('Contactname'); ?></th>
+		<th><?php __('Address'); ?></th>
+		<th><?php __('City'); ?></th>
+		<th><?php __('Zip'); ?></th>
+		<th><?php __('State'); ?></th>
+		<th><?php __('Phone'); ?></th>
+		<th><?php __('Fax'); ?></th>
+		<th><?php __('Paymentterms'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -71,6 +129,14 @@
 			<td><?php echo $vendor['id'];?></td>
 			<td><?php echo $vendor['company_id'];?></td>
 			<td><?php echo $vendor['name'];?></td>
+			<td><?php echo $vendor['contactname'];?></td>
+			<td><?php echo $vendor['address'];?></td>
+			<td><?php echo $vendor['city'];?></td>
+			<td><?php echo $vendor['zip'];?></td>
+			<td><?php echo $vendor['state'];?></td>
+			<td><?php echo $vendor['phone'];?></td>
+			<td><?php echo $vendor['fax'];?></td>
+			<td><?php echo $vendor['paymentterms'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'vendors', 'action' => 'view', $vendor['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'vendors', 'action' => 'edit', $vendor['id'])); ?>

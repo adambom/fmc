@@ -1,5 +1,5 @@
-<div class="employees index">
-<h2><?php __('Employees');?></h2>
+<div class="employee index">
+<h2><?php __('Employee');?></h2>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -35,7 +35,7 @@ echo $paginator->counter(array(
 </tr>
 <?php
 $i = 0;
-foreach ($employees as $employee):
+foreach ($employee as $employee):
 	$class = null;
 	if ($i++ % 2 == 0) {
 		$class = ' class="altrow"';

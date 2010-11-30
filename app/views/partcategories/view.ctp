@@ -39,8 +39,15 @@
 		<th><?php __('Vendor Id'); ?></th>
 		<th><?php __('Manufacturer Id'); ?></th>
 		<th><?php __('Partcategory Id'); ?></th>
-		<th><?php __('Name'); ?></th>
+		<th><?php __('Partsubcategory Id'); ?></th>
+		<th><?php __('Deviceid'); ?></th>
+		<th><?php __('Partnumber'); ?></th>
 		<th><?php __('Description'); ?></th>
+		<th><?php __('Price'); ?></th>
+		<th><?php __('Materialcost'); ?></th>
+		<th><?php __('Specpath'); ?></th>
+		<th><?php __('Guidepath'); ?></th>
+		<th><?php __('Type'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -56,8 +63,15 @@
 			<td><?php echo $part['vendor_id'];?></td>
 			<td><?php echo $part['manufacturer_id'];?></td>
 			<td><?php echo $part['partcategory_id'];?></td>
-			<td><?php echo $part['name'];?></td>
+			<td><?php echo $part['partsubcategory_id'];?></td>
+			<td><?php echo $part['deviceid'];?></td>
+			<td><?php echo $part['partnumber'];?></td>
 			<td><?php echo $part['description'];?></td>
+			<td><?php echo $part['price'];?></td>
+			<td><?php echo $part['materialcost'];?></td>
+			<td><?php echo $part['specpath'];?></td>
+			<td><?php echo $part['guidepath'];?></td>
+			<td><?php echo $part['type'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'parts', 'action' => 'view', $part['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'parts', 'action' => 'edit', $part['id'])); ?>

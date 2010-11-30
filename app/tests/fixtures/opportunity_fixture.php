@@ -1,5 +1,5 @@
 <?php
-/* Opportunity Fixture generated on: 2010-11-11 23:11:42 : 1289535222 */
+/* Opportunity Fixture generated on: 2010-11-30 23:11:20 : 1291160600 */
 class OpportunityFixture extends CakeTestFixture {
 	var $name = 'Opportunity';
 
@@ -10,6 +10,16 @@ class OpportunityFixture extends CakeTestFixture {
 		'stage_id' => array('type'=>'integer', 'type' => 'integer', 'null' => false, 'default' => NULL),
 		'name' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
 		'description' => array('type'=>'text', 'type' => 'text', 'null' => false, 'default' => NULL),
+		'shortdescription' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'owner' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'leadsource' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'amount' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'expamount' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'forecastedclosedate' => array('type'=>'date', 'type' => 'date', 'null' => false, 'default' => NULL),
+		'actualclosedate' => array('type'=>'date', 'type' => 'date', 'null' => false, 'default' => NULL),
+		'nextstep' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'customprobability' => array('type'=>'float', 'type' => 'float', 'null' => false, 'default' => NULL),
+		'createddate' => array('type'=>'date', 'type' => 'date', 'null' => false, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 
@@ -20,7 +30,17 @@ class OpportunityFixture extends CakeTestFixture {
 			'jobcategory_id' => 1,
 			'stage_id' => 1,
 			'name' => 'Lorem ipsum dolor sit amet',
-			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.'
+			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+			'shortdescription' => 'Lorem ipsum dolor sit amet',
+			'owner' => 'Lorem ipsum dolor sit amet',
+			'leadsource' => 'Lorem ipsum dolor sit amet',
+			'amount' => 'Lorem ipsum dolor sit amet',
+			'expamount' => 'Lorem ipsum dolor sit amet',
+			'forecastedclosedate' => '2010-11-30',
+			'actualclosedate' => '2010-11-30',
+			'nextstep' => 'Lorem ipsum dolor sit amet',
+			'customprobability' => 'Lorem ipsum dolor sit amet',
+			'createddate' => '2010-11-30'
 		),
 	);
 }

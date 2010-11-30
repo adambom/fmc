@@ -1,5 +1,5 @@
 <?php
-/* Jobtype Test cases generated on: 2010-11-11 23:11:42 : 1289535222*/
+/* Jobtype Test cases generated on: 2010-11-30 23:11:19 : 1291160599*/
 App::import('Model', 'Jobtype');
 
 class JobtypeTestCase extends CakeTestCase {

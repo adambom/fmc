@@ -16,6 +16,11 @@
 			<?php echo $opportunitiesVendor['OpportunitiesVendor']['vendor_id']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Primary'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $opportunitiesVendor['OpportunitiesVendor']['primary']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

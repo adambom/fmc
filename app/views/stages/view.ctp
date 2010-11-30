@@ -44,6 +44,16 @@
 		<th><?php __('Stage Id'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Description'); ?></th>
+		<th><?php __('Shortdescription'); ?></th>
+		<th><?php __('Owner'); ?></th>
+		<th><?php __('Leadsource'); ?></th>
+		<th><?php __('Amount'); ?></th>
+		<th><?php __('Expamount'); ?></th>
+		<th><?php __('Forecastedclosedate'); ?></th>
+		<th><?php __('Actualclosedate'); ?></th>
+		<th><?php __('Nextstep'); ?></th>
+		<th><?php __('Customprobability'); ?></th>
+		<th><?php __('Createddate'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -61,6 +71,16 @@
 			<td><?php echo $opportunity['stage_id'];?></td>
 			<td><?php echo $opportunity['name'];?></td>
 			<td><?php echo $opportunity['description'];?></td>
+			<td><?php echo $opportunity['shortdescription'];?></td>
+			<td><?php echo $opportunity['owner'];?></td>
+			<td><?php echo $opportunity['leadsource'];?></td>
+			<td><?php echo $opportunity['amount'];?></td>
+			<td><?php echo $opportunity['expamount'];?></td>
+			<td><?php echo $opportunity['forecastedclosedate'];?></td>
+			<td><?php echo $opportunity['actualclosedate'];?></td>
+			<td><?php echo $opportunity['nextstep'];?></td>
+			<td><?php echo $opportunity['customprobability'];?></td>
+			<td><?php echo $opportunity['createddate'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'opportunities', 'action' => 'view', $opportunity['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'opportunities', 'action' => 'edit', $opportunity['id'])); ?>

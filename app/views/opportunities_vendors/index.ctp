@@ -11,6 +11,7 @@ echo $paginator->counter(array(
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('opportunity_id');?></th>
 	<th><?php echo $paginator->sort('vendor_id');?></th>
+	<th><?php echo $paginator->sort('primary');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -30,6 +31,9 @@ foreach ($opportunitiesVendors as $opportunitiesVendor):
 		</td>
 		<td>
 			<?php echo $opportunitiesVendor['OpportunitiesVendor']['vendor_id']; ?>
+		</td>
+		<td>
+			<?php echo $opportunitiesVendor['OpportunitiesVendor']['primary']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $opportunitiesVendor['OpportunitiesVendor']['id'])); ?>

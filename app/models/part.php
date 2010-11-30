@@ -2,16 +2,22 @@
 class Part extends AppModel {
 	var $name = 'Part';
 	var $validate = array(
-		'vendor_id' => array(
-			'numeric' => array('rule' => array('numeric')),
-		),
-		'manufacturer_id' => array(
-			'numeric' => array('rule' => array('numeric')),
-		),
 		'partcategory_id' => array(
 			'numeric' => array('rule' => array('numeric')),
 		),
-		'name' => array(
+		'deviceid' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'partnumber' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'specpath' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'guidepath' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'type' => array(
 			'notempty' => array('rule' => array('notempty')),
 		),
 	);
@@ -35,6 +41,13 @@ class Part extends AppModel {
 		'Partcategory' => array(
 			'className' => 'Partcategory',
 			'foreignKey' => 'partcategory_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Partsubcategory' => array(
+			'className' => 'Partsubcategory',
+			'foreignKey' => 'partsubcategory_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

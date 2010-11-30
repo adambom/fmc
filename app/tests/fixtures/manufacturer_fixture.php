@@ -1,5 +1,5 @@
 <?php
-/* Manufacturer Fixture generated on: 2010-11-11 23:11:42 : 1289535222 */
+/* Manufacturer Fixture generated on: 2010-11-30 23:11:20 : 1291160600 */
 class ManufacturerFixture extends CakeTestFixture {
 	var $name = 'Manufacturer';
 
@@ -7,6 +7,7 @@ class ManufacturerFixture extends CakeTestFixture {
 		'id' => array('type'=>'integer', 'type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'company_id' => array('type'=>'integer', 'type' => 'integer', 'null' => false, 'default' => NULL),
 		'name' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
+		'type' => array('type'=>'string', 'type' => 'string', 'null' => false, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 
@@ -14,7 +15,8 @@ class ManufacturerFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'company_id' => 1,
-			'name' => 'Lorem ipsum dolor sit amet'
+			'name' => 'Lorem ipsum dolor sit amet',
+			'type' => 'Lorem ipsum dolor sit amet'
 		),
 	);
 }

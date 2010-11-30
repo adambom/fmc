@@ -1,5 +1,5 @@
 <?php
-/* Opportunity Test cases generated on: 2010-11-11 23:11:43 : 1289535223*/
+/* Opportunity Test cases generated on: 2010-11-30 23:11:21 : 1291160601*/
 App::import('Model', 'Opportunity');
 
 class OpportunityTestCase extends CakeTestCase {

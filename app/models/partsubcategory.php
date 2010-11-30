@@ -20,5 +20,22 @@ class Partsubcategory extends AppModel {
 			'order' => ''
 		)
 	);
+
+	var $hasMany = array(
+		'Part' => array(
+			'className' => 'Part',
+			'foreignKey' => 'partsubcategory_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 }
 ?>

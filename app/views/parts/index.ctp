@@ -12,8 +12,15 @@ echo $paginator->counter(array(
 	<th><?php echo $paginator->sort('vendor_id');?></th>
 	<th><?php echo $paginator->sort('manufacturer_id');?></th>
 	<th><?php echo $paginator->sort('partcategory_id');?></th>
-	<th><?php echo $paginator->sort('name');?></th>
+	<th><?php echo $paginator->sort('partsubcategory_id');?></th>
+	<th><?php echo $paginator->sort('deviceid');?></th>
+	<th><?php echo $paginator->sort('partnumber');?></th>
 	<th><?php echo $paginator->sort('description');?></th>
+	<th><?php echo $paginator->sort('price');?></th>
+	<th><?php echo $paginator->sort('materialcost');?></th>
+	<th><?php echo $paginator->sort('specpath');?></th>
+	<th><?php echo $paginator->sort('guidepath');?></th>
+	<th><?php echo $paginator->sort('type');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -38,10 +45,31 @@ foreach ($parts as $part):
 			<?php echo $html->link($part['Partcategory']['name'], array('controller' => 'partcategories', 'action' => 'view', $part['Partcategory']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $part['Part']['name']; ?>
+			<?php echo $html->link($part['Partsubcategory']['name'], array('controller' => 'partsubcategories', 'action' => 'view', $part['Partsubcategory']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['deviceid']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['partnumber']; ?>
 		</td>
 		<td>
 			<?php echo $part['Part']['description']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['price']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['materialcost']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['specpath']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['guidepath']; ?>
+		</td>
+		<td>
+			<?php echo $part['Part']['type']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $part['Part']['id'])); ?>
@@ -66,6 +94,8 @@ foreach ($parts as $part):
 		<li><?php echo $html->link(__('New Manufacturer', true), array('controller' => 'manufacturers', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Partcategories', true), array('controller' => 'partcategories', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Partcategory', true), array('controller' => 'partcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Partsubcategories', true), array('controller' => 'partsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Partsubcategory', true), array('controller' => 'partsubcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Productreturns', true), array('controller' => 'productreturns', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Productreturn', true), array('controller' => 'productreturns', 'action' => 'add')); ?> </li>
 	</ul>

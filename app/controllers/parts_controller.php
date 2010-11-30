@@ -5,7 +5,7 @@ class PartsController extends AppController {
 	var $helpers = array('Html', 'Form');
 
 	function index() {
-		$this->Part->recursive = 1;
+		$this->Part->recursive = 0;
 		$this->set('parts', $this->paginate());
 	}
 
@@ -30,8 +30,9 @@ class PartsController extends AppController {
 		$vendors = $this->Part->Vendor->find('list');
 		$manufacturers = $this->Part->Manufacturer->find('list');
 		$partcategories = $this->Part->Partcategory->find('list');
+		$partsubcategories = $this->Part->Partsubcategory->find('list');
 		$productreturns = $this->Part->Productreturn->find('list');
-		$this->set(compact('vendors', 'manufacturers', 'partcategories', 'productreturns'));
+		$this->set(compact('vendors', 'manufacturers', 'partcategories', 'partsubcategories', 'productreturns'));
 	}
 
 	function edit($id = null) {
@@ -53,8 +54,9 @@ class PartsController extends AppController {
 		$vendors = $this->Part->Vendor->find('list');
 		$manufacturers = $this->Part->Manufacturer->find('list');
 		$partcategories = $this->Part->Partcategory->find('list');
+		$partsubcategories = $this->Part->Partsubcategory->find('list');
 		$productreturns = $this->Part->Productreturn->find('list');
-		$this->set(compact('vendors', 'manufacturers', 'partcategories', 'productreturns'));
+		$this->set(compact('vendors', 'manufacturers', 'partcategories', 'partsubcategories', 'productreturns'));
 	}
 
 	function delete($id = null) {

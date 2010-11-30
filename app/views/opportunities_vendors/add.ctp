@@ -5,6 +5,7 @@
 	<?php
 		echo $form->input('opportunity_id');
 		echo $form->input('vendor_id');
+		echo $form->input('primary');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

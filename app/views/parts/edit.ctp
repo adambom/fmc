@@ -7,8 +7,15 @@
 		echo $form->input('vendor_id');
 		echo $form->input('manufacturer_id');
 		echo $form->input('partcategory_id');
-		echo $form->input('name');
+		echo $form->input('partsubcategory_id');
+		echo $form->input('deviceid');
+		echo $form->input('partnumber');
 		echo $form->input('description');
+		echo $form->input('price');
+		echo $form->input('materialcost');
+		echo $form->input('specpath');
+		echo $form->input('guidepath');
+		echo $form->input('type');
 		echo $form->input('Productreturn');
 	?>
 	</fieldset>
@@ -24,6 +31,8 @@
 		<li><?php echo $html->link(__('New Manufacturer', true), array('controller' => 'manufacturers', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Partcategories', true), array('controller' => 'partcategories', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Partcategory', true), array('controller' => 'partcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Partsubcategories', true), array('controller' => 'partsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Partsubcategory', true), array('controller' => 'partsubcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Productreturns', true), array('controller' => 'productreturns', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Productreturn', true), array('controller' => 'productreturns', 'action' => 'add')); ?> </li>
 	</ul>
