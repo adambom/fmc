@@ -1,5 +1,5 @@
 <?php
-/* Stages Test cases generated on: 2010-11-30 23:11:54 : 1291160634*/
+/* Stages Test cases generated on: 2010-12-02 01:12:21 : 1291253361*/
 App::import('Controller', 'Stages');
 
 class TestStagesController extends StagesController {
@@ -11,7 +11,7 @@ class TestStagesController extends StagesController {
 }
 
 class StagesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.stage', 'app.opportunity', 'app.customer', 'app.company', 'app.manufacturer', 'app.part', 'app.vendor', 'app.productreturn', 'app.productreturns_part', 'app.opportunities_vendor', 'app.partcategory', 'app.partsubcategory', 'app.employee', 'app.companies_employee', 'app.job', 'app.jobtype', 'app.jobcategory', 'app.location', 'app.jobs_location');
+	var $fixtures = array('app.stage', 'app.opportunity', 'app.customer', 'app.company', 'app.manufacturer', 'app.part', 'app.vendor', 'app.productreturn', 'app.productreturns_part', 'app.opportunities_vendor', 'app.partcategory', 'app.partsubcategory', 'app.employee', 'app.companies_employee', 'app.job', 'app.location', 'app.jobtype', 'app.jobcategory');
 
 	function startTest() {
 		$this->Stages =& new TestStagesController();

@@ -1,5 +1,5 @@
 <?php
-/* Partcategories Test cases generated on: 2010-11-30 23:11:54 : 1291160634*/
+/* Partcategories Test cases generated on: 2010-12-02 01:12:21 : 1291253361*/
 App::import('Controller', 'Partcategories');
 
 class TestPartcategoriesController extends PartcategoriesController {
@@ -11,7 +11,7 @@ class TestPartcategoriesController extends PartcategoriesController {
 }
 
 class PartcategoriesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.partcategory', 'app.part', 'app.vendor', 'app.company', 'app.customer', 'app.job', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.opportunities_vendor', 'app.location', 'app.jobs_location', 'app.manufacturer', 'app.employee', 'app.companies_employee', 'app.productreturn', 'app.productreturns_part', 'app.partsubcategory');
+	var $fixtures = array('app.partcategory', 'app.part', 'app.vendor', 'app.company', 'app.customer', 'app.job', 'app.location', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.opportunities_vendor', 'app.manufacturer', 'app.employee', 'app.companies_employee', 'app.productreturn', 'app.productreturns_part', 'app.partsubcategory');
 
 	function startTest() {
 		$this->Partcategories =& new TestPartcategoriesController();

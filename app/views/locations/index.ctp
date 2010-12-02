@@ -10,7 +10,6 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('name');?></th>
-	<th><?php echo $paginator->sort('description');?></th>
 	<th><?php echo $paginator->sort('address1');?></th>
 	<th><?php echo $paginator->sort('address2');?></th>
 	<th><?php echo $paginator->sort('city');?></th>
@@ -33,9 +32,6 @@ foreach ($locations as $location):
 		</td>
 		<td>
 			<?php echo $location['Location']['name']; ?>
-		</td>
-		<td>
-			<?php echo $location['Location']['description']; ?>
 		</td>
 		<td>
 			<?php echo $location['Location']['address1']; ?>

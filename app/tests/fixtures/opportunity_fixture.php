@@ -1,5 +1,5 @@
 <?php
-/* Opportunity Fixture generated on: 2010-11-30 23:11:20 : 1291160600 */
+/* Opportunity Fixture generated on: 2010-12-02 01:12:04 : 1291253344 */
 class OpportunityFixture extends CakeTestFixture {
 	var $name = 'Opportunity';
 
@@ -36,11 +36,11 @@ class OpportunityFixture extends CakeTestFixture {
 			'leadsource' => 'Lorem ipsum dolor sit amet',
 			'amount' => 'Lorem ipsum dolor sit amet',
 			'expamount' => 'Lorem ipsum dolor sit amet',
-			'forecastedclosedate' => '2010-11-30',
-			'actualclosedate' => '2010-11-30',
+			'forecastedclosedate' => '2010-12-02',
+			'actualclosedate' => '2010-12-02',
 			'nextstep' => 'Lorem ipsum dolor sit amet',
 			'customprobability' => 'Lorem ipsum dolor sit amet',
-			'createddate' => '2010-11-30'
+			'createddate' => '2010-12-02'
 		),
 	);
 }

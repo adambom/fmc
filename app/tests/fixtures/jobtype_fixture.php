@@ -1,5 +1,5 @@
 <?php
-/* Jobtype Fixture generated on: 2010-11-30 23:11:18 : 1291160598 */
+/* Jobtype Fixture generated on: 2010-12-02 01:12:02 : 1291253342 */
 class JobtypeFixture extends CakeTestFixture {
 	var $name = 'Jobtype';
 

@@ -1,5 +1,5 @@
 <?php
-/* Partsubcategory Fixture generated on: 2010-11-30 23:11:23 : 1291160603 */
+/* Partsubcategory Fixture generated on: 2010-12-02 01:12:06 : 1291253346 */
 class PartsubcategoryFixture extends CakeTestFixture {
 	var $name = 'Partsubcategory';
 

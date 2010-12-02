@@ -28,10 +28,10 @@ class JobsController extends AppController {
 			}
 		}
 		$customers = $this->Job->Customer->find('list');
+		$locations = $this->Job->Location->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
 		$jobcategories = $this->Job->Jobcategory->find('list');
-		$locations = $this->Job->Location->find('list');
-		$this->set(compact('customers', 'jobtypes', 'jobcategories', 'locations'));
+		$this->set(compact('customers', 'locations', 'jobtypes', 'jobcategories'));
 	}
 
 	function edit($id = null) {
@@ -51,10 +51,10 @@ class JobsController extends AppController {
 			$this->data = $this->Job->read(null, $id);
 		}
 		$customers = $this->Job->Customer->find('list');
+		$locations = $this->Job->Location->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
 		$jobcategories = $this->Job->Jobcategory->find('list');
-		$locations = $this->Job->Location->find('list');
-		$this->set(compact('customers', 'jobtypes', 'jobcategories', 'locations'));
+		$this->set(compact('customers', 'locations', 'jobtypes', 'jobcategories'));
 	}
 
 	function delete($id = null) {

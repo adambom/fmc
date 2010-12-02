@@ -18,7 +18,7 @@ class Location extends AppModel {
 			'notempty' => array('rule' => array('notempty')),
 		),
 		'zip' => array(
-			'numeric' => array('rule' => array('numeric')),
+			'notempty' => array('rule' => array('notempty')),
 		),
 		'phone' => array(
 			'notempty' => array('rule' => array('notempty')),
@@ -26,21 +26,19 @@ class Location extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasAndBelongsToMany = array(
+	var $hasMany = array(
 		'Job' => array(
 			'className' => 'Job',
-			'joinTable' => 'jobs_locations',
 			'foreignKey' => 'location_id',
-			'associationForeignKey' => 'job_id',
-			'unique' => true,
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
 			'offset' => '',
+			'exclusive' => '',
 			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
+			'counterQuery' => ''
 		)
 	);
 

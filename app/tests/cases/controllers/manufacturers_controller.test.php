@@ -1,5 +1,5 @@
 <?php
-/* Manufacturers Test cases generated on: 2010-11-30 23:11:54 : 1291160634*/
+/* Manufacturers Test cases generated on: 2010-12-02 01:12:21 : 1291253361*/
 App::import('Controller', 'Manufacturers');
 
 class TestManufacturersController extends ManufacturersController {
@@ -11,7 +11,7 @@ class TestManufacturersController extends ManufacturersController {
 }
 
 class ManufacturersControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.manufacturer', 'app.company', 'app.customer', 'app.job', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.vendor', 'app.part', 'app.partcategory', 'app.partsubcategory', 'app.productreturn', 'app.productreturns_part', 'app.opportunities_vendor', 'app.location', 'app.jobs_location', 'app.employee', 'app.companies_employee');
+	var $fixtures = array('app.manufacturer', 'app.company', 'app.customer', 'app.job', 'app.location', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.vendor', 'app.part', 'app.partcategory', 'app.partsubcategory', 'app.productreturn', 'app.productreturns_part', 'app.opportunities_vendor', 'app.employee', 'app.companies_employee');
 
 	function startTest() {
 		$this->Manufacturers =& new TestManufacturersController();

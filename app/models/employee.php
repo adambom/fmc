@@ -61,5 +61,24 @@ class Employee extends AppModel {
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+	var $hasAndBelongsToMany = array(
+		'Company' => array(
+			'className' => 'Company',
+			'joinTable' => 'companies_employees',
+			'foreignKey' => 'employee_id',
+			'associationForeignKey' => 'company_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		)
+	);
+
 }
 ?>

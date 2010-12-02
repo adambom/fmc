@@ -5,14 +5,41 @@ class Job extends AppModel {
 		'customer_id' => array(
 			'numeric' => array('rule' => array('numeric')),
 		),
+		'location_id' => array(
+			'numeric' => array('rule' => array('numeric')),
+		),
 		'jobtype_id' => array(
 			'numeric' => array('rule' => array('numeric')),
 		),
 		'jobcategory_id' => array(
 			'numeric' => array('rule' => array('numeric')),
 		),
+		'jobnumber' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),
+		),
+		'date' => array(
+			'date' => array('rule' => array('date')),
+		),
+		'customerdescription' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'ponumber' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'status' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'invoice' => array(
+			'notempty' => array('rule' => array('notempty')),
+		),
+		'taxable' => array(
+			'boolean' => array('rule' => array('boolean')),
+		),
+		'selected' => array(
+			'boolean' => array('rule' => array('boolean')),
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -21,6 +48,13 @@ class Job extends AppModel {
 		'Customer' => array(
 			'className' => 'Customer',
 			'foreignKey' => 'customer_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Location' => array(
+			'className' => 'Location',
+			'foreignKey' => 'location_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -40,24 +74,5 @@ class Job extends AppModel {
 			'order' => ''
 		)
 	);
-
-	var $hasAndBelongsToMany = array(
-		'Location' => array(
-			'className' => 'Location',
-			'joinTable' => 'jobs_locations',
-			'foreignKey' => 'job_id',
-			'associationForeignKey' => 'location_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
-
 }
 ?>

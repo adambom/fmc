@@ -1,5 +1,5 @@
 <?php
-/* OpportunitiesVendor Fixture generated on: 2010-11-30 23:11:21 : 1291160601 */
+/* OpportunitiesVendor Fixture generated on: 2010-12-02 01:12:04 : 1291253344 */
 class OpportunitiesVendorFixture extends CakeTestFixture {
 	var $name = 'OpportunitiesVendor';
 

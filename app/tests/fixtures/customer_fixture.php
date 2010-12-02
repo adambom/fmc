@@ -1,5 +1,5 @@
 <?php
-/* Customer Fixture generated on: 2010-11-30 23:11:15 : 1291160595 */
+/* Customer Fixture generated on: 2010-12-02 01:12:59 : 1291253339 */
 class CustomerFixture extends CakeTestFixture {
 	var $name = 'Customer';
 
@@ -39,8 +39,8 @@ class CustomerFixture extends CakeTestFixture {
 			'url' => 'Lorem ipsum dolor sit amet',
 			'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
 			'short_description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-			'created_date' => '2010-11-30 23:43:15',
-			'updated_date' => '2010-11-30 23:43:15'
+			'created_date' => '2010-12-02 01:28:59',
+			'updated_date' => '2010-12-02 01:28:59'
 		),
 	);
 }

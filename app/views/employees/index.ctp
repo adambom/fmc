@@ -128,5 +128,7 @@ foreach ($employees as $employee):
 <div class="actions">
 	<ul>
 		<li><?php echo $html->link(__('New Employee', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

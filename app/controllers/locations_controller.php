@@ -27,8 +27,6 @@ class LocationsController extends AppController {
 				$this->Session->setFlash(__('The Location could not be saved. Please, try again.', true));
 			}
 		}
-		$jobs = $this->Location->Job->find('list');
-		$this->set(compact('jobs'));
 	}
 
 	function edit($id = null) {
@@ -47,8 +45,6 @@ class LocationsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Location->read(null, $id);
 		}
-		$jobs = $this->Location->Job->find('list');
-		$this->set(compact('jobs'));
 	}
 
 	function delete($id = null) {

@@ -10,10 +10,21 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('customer_id');?></th>
+	<th><?php echo $paginator->sort('location_id');?></th>
 	<th><?php echo $paginator->sort('jobtype_id');?></th>
 	<th><?php echo $paginator->sort('jobcategory_id');?></th>
+	<th><?php echo $paginator->sort('jobnumber');?></th>
 	<th><?php echo $paginator->sort('name');?></th>
-	<th><?php echo $paginator->sort('description');?></th>
+	<th><?php echo $paginator->sort('date');?></th>
+	<th><?php echo $paginator->sort('customerdescription');?></th>
+	<th><?php echo $paginator->sort('ponumber');?></th>
+	<th><?php echo $paginator->sort('billed');?></th>
+	<th><?php echo $paginator->sort('cost');?></th>
+	<th><?php echo $paginator->sort('status');?></th>
+	<th><?php echo $paginator->sort('invoice');?></th>
+	<th><?php echo $paginator->sort('taxable');?></th>
+	<th><?php echo $paginator->sort('selected');?></th>
+	<th><?php echo $paginator->sort('comments');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -32,16 +43,49 @@ foreach ($jobs as $job):
 			<?php echo $html->link($job['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $job['Customer']['id'])); ?>
 		</td>
 		<td>
+			<?php echo $html->link($job['Location']['name'], array('controller' => 'locations', 'action' => 'view', $job['Location']['id'])); ?>
+		</td>
+		<td>
 			<?php echo $html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($job['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $job['Jobcategory']['id'])); ?>
 		</td>
 		<td>
+			<?php echo $job['Job']['jobnumber']; ?>
+		</td>
+		<td>
 			<?php echo $job['Job']['name']; ?>
 		</td>
 		<td>
-			<?php echo $job['Job']['description']; ?>
+			<?php echo $job['Job']['date']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['customerdescription']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['ponumber']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['billed']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['cost']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['status']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['invoice']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['taxable']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['selected']; ?>
+		</td>
+		<td>
+			<?php echo $job['Job']['comments']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $job['Job']['id'])); ?>
@@ -62,11 +106,11 @@ foreach ($jobs as $job):
 		<li><?php echo $html->link(__('New Job', true), array('action' => 'add')); ?></li>
 		<li><?php echo $html->link(__('List Customers', true), array('controller' => 'customers', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Customer', true), array('controller' => 'customers', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Locations', true), array('controller' => 'locations', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Location', true), array('controller' => 'locations', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Jobtypes', true), array('controller' => 'jobtypes', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Jobtype', true), array('controller' => 'jobtypes', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Jobcategories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Jobcategory', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Locations', true), array('controller' => 'locations', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Location', true), array('controller' => 'locations', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
