@@ -5,28 +5,22 @@ echo $form->create("Opportunity", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for'));
 echo $form->end("Search");
 ?>
-<p>
-<?php
-echo $paginator->counter(array(
-'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-));
-?></p>
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('Customer', 'company_id');?></th>
-	<th><?php echo $paginator->sort('Job Category', 'jobcategory_id');?></th>
-	<th><?php echo $paginator->sort('stage_id');?></th>
-	<th><?php echo $paginator->sort('name');?></th>
-	<th><?php echo $paginator->sort('Short Description', 'shortdescription');?></th>
-	<th><?php echo $paginator->sort('owner');?></th>
-	<th><?php echo $paginator->sort('amount');?></th>
-	<th><?php echo $paginator->sort('Date Created', 'createddate');?></th>
+	<th>Id</th>
+	<th>Customer</th>
+	<th>Job Category</th>
+	<th>Stage</th>
+	<th>Name</th>
+	<th>Short Description</th>
+	<th>Owner</th>
+	<th>Amount</th>
+	<th>Date Created</th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
 $i = 0;
-foreach ($opportunities as $opportunity):
+foreach ($results as $opportunity):
 	$class = null;
 	if ($i++ % 2 == 0) {
 		$class = ' class="altrow"';
@@ -70,19 +64,16 @@ foreach ($opportunities as $opportunity):
 <?php endforeach; ?>
 </table>
 </div>
-<div class="paging">
-	<?php echo $paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
- | 	<?php echo $paginator->numbers();?>
-	<?php echo $paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
-</div>
 <div class="actions">
 	<ul>
 		<li><?php echo $html->link(__('New Opportunity', true), array('action' => 'add')); ?></li>
-		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Job Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Customers', true), array('controller' => 'customers', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Customer', true), array('controller' => 'customers', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Jobcategories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Jobcategory', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

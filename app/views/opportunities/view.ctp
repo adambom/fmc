@@ -8,10 +8,10 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Customer'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $html->link($opportunity['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $opportunity['Customer']['id'])); ?>
+			<?php echo $html->link($opportunity['Company']['name'], array('controller' => 'companies', 'action' => 'view', $opportunity['Company']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Jobcategory'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Category'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $html->link($opportunity['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $opportunity['Jobcategory']['id'])); ?>
 			&nbsp;
@@ -31,7 +31,7 @@
 			<?php echo $opportunity['Opportunity']['description']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Shortdescription'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Short Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['shortdescription']; ?>
 			&nbsp;
@@ -41,7 +41,7 @@
 			<?php echo $opportunity['Opportunity']['owner']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Leadsource'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Lead Source'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['leadsource']; ?>
 			&nbsp;
@@ -56,27 +56,27 @@
 			<?php echo $opportunity['Opportunity']['expamount']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Forecastedclosedate'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Forecasted Close Date'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['forecastedclosedate']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Actualclosedate'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Actual Close Date'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['actualclosedate']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nextstep'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Next Step'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['nextstep']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Customprobability'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Custom Probability'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['customprobability']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Createddate'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $opportunity['Opportunity']['createddate']; ?>
 			&nbsp;
@@ -89,14 +89,12 @@
 		<li><?php echo $html->link(__('Delete Opportunity', true), array('action' => 'delete', $opportunity['Opportunity']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $opportunity['Opportunity']['id'])); ?> </li>
 		<li><?php echo $html->link(__('List Opportunities', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Opportunity', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Customers', true), array('controller' => 'customers', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Customer', true), array('controller' => 'customers', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Jobcategories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Jobcategory', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Opportunity Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Cpportunity Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -105,16 +103,8 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Company Id'); ?></th>
+		<!--th><?php __('Company Id'); ?></th-->
 		<th><?php __('Name'); ?></th>
-		<th><?php __('Contactname'); ?></th>
-		<th><?php __('Address'); ?></th>
-		<th><?php __('City'); ?></th>
-		<th><?php __('Zip'); ?></th>
-		<th><?php __('State'); ?></th>
-		<th><?php __('Phone'); ?></th>
-		<th><?php __('Fax'); ?></th>
-		<th><?php __('Paymentterms'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -127,16 +117,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $vendor['id'];?></td>
-			<td><?php echo $vendor['company_id'];?></td>
 			<td><?php echo $vendor['name'];?></td>
-			<td><?php echo $vendor['contactname'];?></td>
-			<td><?php echo $vendor['address'];?></td>
-			<td><?php echo $vendor['city'];?></td>
-			<td><?php echo $vendor['zip'];?></td>
-			<td><?php echo $vendor['state'];?></td>
-			<td><?php echo $vendor['phone'];?></td>
-			<td><?php echo $vendor['fax'];?></td>
-			<td><?php echo $vendor['paymentterms'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'vendors', 'action' => 'view', $vendor['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'vendors', 'action' => 'edit', $vendor['id'])); ?>

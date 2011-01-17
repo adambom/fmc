@@ -27,11 +27,11 @@ class OpportunitiesController extends AppController {
 				$this->Session->setFlash(__('The Opportunity could not be saved. Please, try again.', true));
 			}
 		}
-		$customers = $this->Opportunity->Customer->find('list');
+		$companies = $this->Opportunity->Company->find('list');
 		$jobcategories = $this->Opportunity->Jobcategory->find('list');
 		$stages = $this->Opportunity->Stage->find('list');
-		$vendors = $this->Opportunity->Vendor->find('list');
-		$this->set(compact('customers', 'jobcategories', 'stages', 'vendors'));
+		$vendors = $this->Opportunity->Vendor->find('list', array('order'=>'Vendor.name'));
+		$this->set(compact('companies', 'jobcategories', 'stages', 'vendors'));
 	}
 
 	function edit($id = null) {
@@ -50,11 +50,11 @@ class OpportunitiesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Opportunity->read(null, $id);
 		}
-		$customers = $this->Opportunity->Customer->find('list');
+		$companies = $this->Opportunity->Company->find('list');
 		$jobcategories = $this->Opportunity->Jobcategory->find('list');
 		$stages = $this->Opportunity->Stage->find('list');
-		$vendors = $this->Opportunity->Vendor->find('list');
-		$this->set(compact('customers', 'jobcategories', 'stages', 'vendors'));
+		$vendors = $this->Opportunity->Vendor->find('list', array('order'=>'Vendor.name'));
+		$this->set(compact('companies', 'jobcategories', 'stages', 'vendors'));
 	}
 
 	function delete($id = null) {
@@ -68,6 +68,17 @@ class OpportunitiesController extends AppController {
 		}
 		$this->Session->setFlash(__('Opportunity was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	function search() {
+		$q = $this->data['Opportunity']['q'];
+		$conditions = array(
+			"OR" => array (
+				"Opportunity.name LIKE" => "%".$q."%",
+				"Opportunity.description LIKE" => "%".$q."%",
+				"Opportunity.shortdescription LIKE" => "%".$q."%"
+			)
+		);
+		$this->set('results', $this->Opportunity->find('all', array('conditions' => $conditions)));
 	}
 }
 ?>

@@ -27,7 +27,7 @@ class ProductreturnsController extends AppController {
 				$this->Session->setFlash(__('The Productreturn could not be saved. Please, try again.', true));
 			}
 		}
-		$vendors = $this->Productreturn->Vendor->find('list');
+		$vendors = $this->Productreturn->Vendor->find('list', array('order'=>'Vendor.name'));
 		$parts = $this->Productreturn->Part->find('list');
 		$this->set(compact('vendors', 'parts'));
 	}
@@ -48,7 +48,7 @@ class ProductreturnsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Productreturn->read(null, $id);
 		}
-		$vendors = $this->Productreturn->Vendor->find('list');
+		$vendors = $this->Productreturn->Vendor->find('list', array('order'=>'Vendor.name'));
 		$parts = $this->Productreturn->Part->find('list');
 		$this->set(compact('vendors', 'parts'));
 	}

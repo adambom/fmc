@@ -1,5 +1,5 @@
 <div class="partsubcategories index">
-<h2><?php __('Partsubcategories');?></h2>
+<h2><?php __('Part Subcategories');?></h2>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -9,7 +9,7 @@ echo $paginator->counter(array(
 <table cellpadding="0" cellspacing="0">
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('partcategory_id');?></th>
+	<th><?php echo $paginator->sort('Category', 'partcategory_id');?></th>
 	<th><?php echo $paginator->sort('name');?></th>
 	<th><?php echo $paginator->sort('description');?></th>
 	<th class="actions"><?php __('Actions');?></th>
@@ -51,9 +51,9 @@ foreach ($partsubcategories as $partsubcategory):
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('New Partsubcategory', true), array('action' => 'add')); ?></li>
-		<li><?php echo $html->link(__('List Partcategories', true), array('controller' => 'partcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Partcategory', true), array('controller' => 'partcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('New Part Subcategory', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Part Categories', true), array('controller' => 'partcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part Category', true), array('controller' => 'partcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
 	</ul>

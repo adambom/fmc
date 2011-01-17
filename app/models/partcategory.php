@@ -1,6 +1,7 @@
 <?php
 class Partcategory extends AppModel {
 	var $name = 'Partcategory';
+	var $recursive = 2;
 	var $validate = array(
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),

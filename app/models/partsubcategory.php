@@ -1,6 +1,7 @@
 <?php
 class Partsubcategory extends AppModel {
 	var $name = 'Partsubcategory';
+	var $recursive = 2;
 	var $validate = array(
 		'partcategory_id' => array(
 			'numeric' => array('rule' => array('numeric')),

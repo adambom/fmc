@@ -63,5 +63,11 @@ class CompaniesController extends AppController {
 		$this->Session->setFlash(__('Company was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	function search() {
+		$q = $this->data['Company']['q'];
+		$conditions = array("Company.name LIKE" => "%".$q."%");
+		$this->set('results', $this->Company->find('all', array('conditions' => $conditions)));
+	}
 }
 ?>

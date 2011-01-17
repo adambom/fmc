@@ -1,6 +1,7 @@
 <?php
 class Opportunity extends AppModel {
 	var $name = 'Opportunity';
+	var $actAs = array ('Searchable');
 	var $validate = array(
 		'customer_id' => array(
 			'numeric' => array('rule' => array('numeric')),
@@ -14,40 +15,16 @@ class Opportunity extends AppModel {
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),
 		),
-		'shortdescription' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'owner' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'leadsource' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'amount' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'expamount' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'forecastedclosedate' => array(
-			'date' => array('rule' => array('date')),
-		),
-		'actualclosedate' => array(
-			'date' => array('rule' => array('date')),
-		),
-		'nextstep' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
 		'createddate' => array(
 			'date' => array('rule' => array('date')),
-		),
+		)
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
-		'Customer' => array(
-			'className' => 'Customer',
-			'foreignKey' => 'customer_id',
+		'Company' => array(
+			'className' => 'Company',
+			'foreignKey' => 'company_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -64,13 +41,13 @@ class Opportunity extends AppModel {
 			'foreignKey' => 'stage_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => 'Stage.id ASC'
 		)
 	);
 
 	var $hasAndBelongsToMany = array(
 		'Vendor' => array(
-			'className' => 'Vendor',
+			'className' => 'Company',
 			'joinTable' => 'opportunities_vendors',
 			'foreignKey' => 'opportunity_id',
 			'associationForeignKey' => 'vendor_id',

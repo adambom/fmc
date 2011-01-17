@@ -1,5 +1,5 @@
 <div class="productreturns index">
-<h2><?php __('Productreturns');?></h2>
+<h2><?php __('Product Returns');?></h2>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -25,7 +25,7 @@ foreach ($productreturns as $productreturn):
 			<?php echo $productreturn['Productreturn']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($productreturn['Vendor']['name'], array('controller' => 'vendors', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
+			<?php echo $html->link($productreturn['Vendor']['name'], array('controller' => 'companies', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $productreturn['Productreturn']['id'])); ?>
@@ -43,9 +43,9 @@ foreach ($productreturns as $productreturn):
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('New Productreturn', true), array('action' => 'add')); ?></li>
-		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('New Product Return', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
 	</ul>

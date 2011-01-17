@@ -1,17 +1,17 @@
 <div class="employees view">
-<h2><?php  __('Employee');?></h2>
+<h2><?php  __('Contact');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['id']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Fname'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('First Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['fname']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Lname'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Last Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $employee['Employee']['lname']; ?>
 			&nbsp;
@@ -120,10 +120,10 @@
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('Edit Employee', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
-		<li><?php echo $html->link(__('Delete Employee', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
-		<li><?php echo $html->link(__('List Employees', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Employee', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('Edit Contact', true), array('action' => 'edit', $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $html->link(__('Delete Contact', true), array('action' => 'delete', $employee['Employee']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $employee['Employee']['id'])); ?> </li>
+		<li><?php echo $html->link(__('List Contacts', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Contact', true), array('action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
 	</ul>

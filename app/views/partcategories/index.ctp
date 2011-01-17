@@ -1,5 +1,5 @@
 <div class="partcategories index">
-<h2><?php __('Partcategories');?></h2>
+<h2><?php __('Part Categories');?></h2>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -47,10 +47,10 @@ foreach ($partcategories as $partcategory):
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('New Partcategory', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('New Part Category', true), array('action' => 'add')); ?></li>
 		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Partsubcategories', true), array('controller' => 'partsubcategories', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Partsubcategory', true), array('controller' => 'partsubcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Part Subcategories', true), array('controller' => 'partsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part Subcategory', true), array('controller' => 'partsubcategories', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

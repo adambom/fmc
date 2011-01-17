@@ -5,27 +5,22 @@ echo $form->create("Part", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for'));
 echo $form->end("Search");
 ?>
-<p>
-<?php
-echo $paginator->counter(array(
-'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-));
-?></p>
+
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('vendor_id');?></th>
-	<th><?php echo $paginator->sort('manufacturer_id');?></th>
-	<th><?php echo $paginator->sort('Category', 'partcategory_id');?></th>
-	<th><?php echo $paginator->sort('Subcategory', 'partsubcategory_id');?></th>
-	<th><?php echo $paginator->sort('Device ID', 'deviceid');?></th>
-	<th><?php echo $paginator->sort('Part Number', 'partnumber');?></th>
-	<th><?php echo $paginator->sort('description');?></th>
+	<th>Id</th>
+	<th>Vendor</th>
+	<th>Manufacturer</th>
+	<th>Category</th>
+	<th>Subcategory</th>
+	<th>Device Id</th>
+	<th>Part Number</th>
+	<th>Description</th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
 $i = 0;
-foreach ($parts as $part):
+foreach ($results as $part):
 	$class = null;
 	if ($i++ % 2 == 0) {
 		$class = ' class="altrow"';
@@ -64,11 +59,6 @@ foreach ($parts as $part):
 	</tr>
 <?php endforeach; ?>
 </table>
-</div>
-<div class="paging">
-	<?php echo $paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
- | 	<?php echo $paginator->numbers();?>
-	<?php echo $paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 </div>
 <div class="actions">
 	<ul>

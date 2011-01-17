@@ -10,7 +10,7 @@ class Productreturn extends AppModel {
 
 	var $belongsTo = array(
 		'Vendor' => array(
-			'className' => 'Vendor',
+			'className' => 'Company',
 			'foreignKey' => 'vendor_id',
 			'conditions' => '',
 			'fields' => '',

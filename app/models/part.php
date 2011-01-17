@@ -1,6 +1,8 @@
 <?php
 class Part extends AppModel {
 	var $name = 'Part';
+	var $displayField = 'partnumber';
+	var $actAs = array ('Searchable');
 	var $validate = array(
 		'partcategory_id' => array(
 			'numeric' => array('rule' => array('numeric')),
@@ -10,29 +12,20 @@ class Part extends AppModel {
 		),
 		'partnumber' => array(
 			'notempty' => array('rule' => array('notempty')),
-		),
-		'specpath' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'guidepath' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
-		'type' => array(
-			'notempty' => array('rule' => array('notempty')),
-		),
+		)
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
 		'Vendor' => array(
-			'className' => 'Vendor',
+			'className' => 'Company',
 			'foreignKey' => 'vendor_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Manufacturer' => array(
-			'className' => 'Manufacturer',
+			'className' => 'Company',
 			'foreignKey' => 'manufacturer_id',
 			'conditions' => '',
 			'fields' => '',

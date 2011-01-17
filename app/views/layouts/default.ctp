@@ -40,32 +40,61 @@
 		
 		echo $javascript->link('navigation');
 	?>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#search_type").change(function() {				
+				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
+				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
+			});
+		});
+	</script>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $html->link(__('FMC Technologies', true), '/'); ?></h1>
+			<div id="search">
+				<form id="SearchForm" method="post" action="/fmc/companies/search">
+					<table>
+						<tr>
+							<td><input type="text" name="data[Company][q]" id="q"></td>
+							<td><input type="submit" name="submit" class="search_btn" value="Search"></td>
+							<td>
+								<select name="search_type" id="search_type">
+									<option id="Company" value="companies">Companies</option>
+									<option id="Employee" value="employees">Contacts</option>
+									<option id="Job" value="jobs">Jobs</option>
+									<option id="Opportunity" value="opportunities">Opportunities</option>
+									<option id="Part" value="parts">Parts</option>
+								</select>
+							</td>
+						</tr>
+					</table>				
+				</form>
+			</div>
 		</div>
 		<div id="navigation">
 			<ul>
 				<li><?php echo $html->link(__('Home', true), '/'); ?></li>
-				<li><?php echo $html->link('Companies', '#', array('rel'=>'dropmenu1')); ?></li>
-				<li><?php echo $html->link('Employees', array('controller'=>'employees')); ?></li>
+				<li><?php echo $html->link('Companies', array('controller'=>'companies')); ?></li>
+				<li><?php echo $html->link('Contacts', array('controller'=>'employees')); ?></li>
 				<li><?php echo $html->link('Jobs', array('controller'=>'jobs')); ?></li>
 				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities')); ?></li>
+				<li><?php echo $html->link('Parts', array('controller'=>'parts')); ?></li>
 			</ul>
 			<!--Companies drop down menu -->                                                   
-			<div id="dropmenu1" class="dropmenudiv_a">
+			<!--div id="dropmenu1" class="dropmenudiv_a">
 				<?php
-					echo $html->link('All Companies', array('controller'=>'companies'));
+					/*echo $html->link('All Companies', array('controller'=>'companies'));
 					echo $html->link('Customers', array('controller'=>'customers'));
 					echo $html->link('Vendors', array('controller'=>'vendors'));
-					echo $html->link('Manufacturers', array('controller'=>'manufacturers'));
+					echo $html->link('Manufacturers', array('controller'=>'manufacturers'));*/
 				?>
-			</div>
+			</div-->
 
 			<script type="text/javascript">
-				tabdropdown.init("navigation", 3)
+				//tabdropdown.init("navigation", 3)
 			</script>
 		</div>
 		<div id="content">

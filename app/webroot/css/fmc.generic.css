@@ -92,6 +92,8 @@ ul, li {
 	background: #023866 url('../img/fmc.icon.gif') no-repeat left;
 	color: #fff;
 	padding: 20px 50px;
+	width:50%;
+	float:left;
 }
 #header h1 a {
 	color: #fff;
@@ -103,6 +105,11 @@ ul, li {
 	color: #fff;
 	background: #023866;
 	text-decoration: underline;
+}
+#navigation {
+	float:left;
+	clear:both;
+	margin-top:20px;
 }
 #navigation ul li {
 	display:inline;
@@ -275,7 +282,7 @@ form div.submit {
 	border: 0;
 	clear: both;
 	margin-top: 10px;
-	margin-left: 140px;
+	/*margin-left: 140px;*/
 }
 label {
 	display: block;
@@ -495,4 +502,26 @@ div.code-coverage-results span.result-ok {
 }
 div.code-coverage-results span.result-good {
 	color: #0a0;
+}
+#search {
+	float: right;
+}
+#search select {
+	font-size:100%;
+}
+#search input {
+	font-size:100%;
+	width: 200px;
+}
+#search .search_btn {
+	width:80px;
+}
+#search table {
+	background: none;
+	border:none;
+}
+#search td {
+	background-color:transparent;
+	border:none;
+	vertical-align:middle;
 }

@@ -73,7 +73,7 @@ class EmployeesController extends AppController {
 				"Employee.lname LIKE" => "%".$q."%",
 				"Employee.email LIKE" => "%".$q."%",
 			)
-		);
+		)
 		$this->set('results', $this->Employee->find('all', array('conditions' => $conditions)));
 	}
 }
