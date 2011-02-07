@@ -6,6 +6,8 @@ class JobsController extends AppController {
 
 	function index() {
 		$this->Job->recursive = 0;
+		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$this->set('status_options', $status_options);
 		$this->set('jobs', $this->paginate());
 	}
 
@@ -27,6 +29,8 @@ class JobsController extends AppController {
 				$this->Session->setFlash(__('The Job could not be saved. Please, try again.', true));
 			}
 		}
+		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$this->set('status_options', $status_options);
 		$companies = $this->Job->Company->find('list');
 		$locations = $this->Job->Location->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
@@ -50,6 +54,8 @@ class JobsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Job->read(null, $id);
 		}
+		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$this->set('status_options', $status_options);
 		$companies = $this->Job->Company->find('list');
 		$locations = $this->Job->Location->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
@@ -80,6 +86,8 @@ class JobsController extends AppController {
 				"Jobtype.name LIKE" => "%".$q."%",
 			)
 		);
+		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$this->set('status_options', $status_options);
 		$this->set('results', $this->Job->find('all', array('conditions' => $conditions)));
 	}
 	function convert($opportunity_id = null, $company_id = null, $jobcategory_id = null, $name = null) {
@@ -105,11 +113,43 @@ class JobsController extends AppController {
 		if($name) {
 			$this->set('name', $name);
 		}
+		$this->set('status_options', $status_options);
 		$companies = $this->Job->Company->find('list');
 		$locations = $this->Job->Location->find('list');
 		$jobtypes = $this->Job->Jobtype->find('list');
 		$jobcategories = $this->Job->Jobcategory->find('list');
 		$this->set(compact('companies', 'locations', 'jobtypes', 'jobcategories'));	
+	}
+	function close($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid id for Job', true));
+			$this->redirect(array('action'=>'index'));
+		} else {
+			$this->Job->read('status', $id);
+			$this->Job->set('status', 'Closed');
+			if($this->Job->save()) {
+				$this->Session->setFlash(__('Job Closed', true));
+			} else {
+				$this->Session->setFlash(__('Job could not be closed', true));
+			}
+			$this->redirect(array('action' => 'index'));
+		}
+		
+	}
+	function change_status($id = null, $status) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid id for Job', true));
+			$this->redirect(array('action'=>'index'));
+		} else {
+			$this->Job->read('status', $id);
+			$this->Job->set('status', $status);
+			if($this->Job->save()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
 	}
 }
 ?>

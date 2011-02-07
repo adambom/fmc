@@ -525,3 +525,20 @@ div.code-coverage-results span.result-good {
 	border:none;
 	vertical-align:middle;
 }
+.add_form {
+	border:none;
+}
+.add_form tr td {
+	border:none;
+	padding:0px;
+	text-align:left;
+	vertical-align: middle;
+}
+.tbl_select {
+	font-size:60%;
+}
+#ajax_result {
+	display:none;
+	color:red;
+	font-size:1.5em;
+}

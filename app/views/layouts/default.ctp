@@ -77,11 +77,12 @@
 		<div id="navigation">
 			<ul>
 				<li><?php echo $html->link(__('Home', true), '/'); ?></li>
-				<li><?php echo $html->link('Companies', array('controller'=>'companies')); ?></li>
-				<li><?php echo $html->link('Contacts', array('controller'=>'employees')); ?></li>
-				<li><?php echo $html->link('Jobs', array('controller'=>'jobs')); ?></li>
-				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities')); ?></li>
-				<li><?php echo $html->link('Parts', array('controller'=>'parts')); ?></li>
+				<li><?php echo $html->link('Companies', array('controller'=>'companies', 'action'=>'index')); ?></li>
+				<li><?php echo $html->link('Contacts', array('controller'=>'employees', 'action'=>'index')); ?></li>
+				<li><?php echo $html->link('Jobs', array('controller'=>'jobs', 'action'=>'index')); ?></li>
+				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities', 'action'=>'index')); ?></li>
+				<li><?php echo $html->link('Parts', array('controller'=>'parts', 'action'=>'index')); ?></li>
+				<li><?php echo $html->link('Product Returns', array('controller'=>'productreturns', 'action'=>'index')); ?></li>
 			</ul>
 			<!--Companies drop down menu -->                                                   
 			<!--div id="dropmenu1" class="dropmenudiv_a">

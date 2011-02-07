@@ -1,5 +1,24 @@
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.tbl_select').change(function () {
+			if($(this).val() != '') {
+				id = $(this).attr('id').replace('stage', "");
+				stage = $(this).val()
+				$.post('change_stage/'+id+'/'+stage, function(success) {
+					if(success) {
+						$('#ajax_result').html('The opportunity stage was succesfully updated');
+					} else {
+						$('#ajax_result').html('The opportunity status could not be updated');
+					}
+					$('#ajax_result').slideDown('fast');
+				});
+			}
+		});
+	});
+</script>
 <div class="opportunities index">
 <h2><?php __('Opportunities');?></h2>
+<div id="ajax_result"></div>
 <?php
 echo $form->create("Opportunity", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for'));
@@ -37,7 +56,7 @@ foreach ($results as $opportunity):
 			<?php echo $html->link($opportunity['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $opportunity['Jobcategory']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $html->link($opportunity['Stage']['name'], array('controller' => 'stages', 'action' => 'view', $opportunity['Stage']['id'])); ?>
+			<?php echo $form->select('stage'.$opportunity['Opportunity']['id'], $stages, $opportunity['Stage']['id'], array('class'=>'tbl_select'), false); ?>
 		</td>
 		<td>
 			<?php echo $opportunity['Opportunity']['name']; ?>

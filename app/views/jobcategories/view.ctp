@@ -36,21 +36,19 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Customer Id'); ?></th>
+		<th><?php __('Customer'); ?></th>
 		<th><?php __('Location Id'); ?></th>
 		<th><?php __('Jobtype Id'); ?></th>
 		<th><?php __('Jobcategory Id'); ?></th>
 		<th><?php __('Jobnumber'); ?></th>
 		<th><?php __('Name'); ?></th>
 		<th><?php __('Date'); ?></th>
-		<th><?php __('Customerdescription'); ?></th>
 		<th><?php __('Ponumber'); ?></th>
 		<th><?php __('Billed'); ?></th>
 		<th><?php __('Cost'); ?></th>
 		<th><?php __('Status'); ?></th>
 		<th><?php __('Invoice'); ?></th>
 		<th><?php __('Taxable'); ?></th>
-		<th><?php __('Selected'); ?></th>
 		<th><?php __('Comments'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -64,21 +62,19 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $job['id'];?></td>
-			<td><?php echo $job['customer_id'];?></td>
+			<td><?php echo $job['Company']['name'];?></td>
 			<td><?php echo $job['location_id'];?></td>
 			<td><?php echo $job['jobtype_id'];?></td>
 			<td><?php echo $job['jobcategory_id'];?></td>
 			<td><?php echo $job['jobnumber'];?></td>
 			<td><?php echo $job['name'];?></td>
 			<td><?php echo $job['date'];?></td>
-			<td><?php echo $job['customerdescription'];?></td>
 			<td><?php echo $job['ponumber'];?></td>
 			<td><?php echo $job['billed'];?></td>
 			<td><?php echo $job['cost'];?></td>
 			<td><?php echo $job['status'];?></td>
 			<td><?php echo $job['invoice'];?></td>
 			<td><?php echo $job['taxable'];?></td>
-			<td><?php echo $job['selected'];?></td>
 			<td><?php echo $job['comments'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'jobs', 'action' => 'view', $job['id'])); ?>
@@ -102,7 +98,7 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Customer Id'); ?></th>
+		<th><?php __('Customer'); ?></th>
 		<th><?php __('Jobcategory Id'); ?></th>
 		<th><?php __('Stage Id'); ?></th>
 		<th><?php __('Name'); ?></th>
@@ -129,7 +125,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $opportunity['id'];?></td>
-			<td><?php echo $opportunity['customer_id'];?></td>
+			<td><?php echo $opportunity['Company']['name'];?></td>
 			<td><?php echo $opportunity['jobcategory_id'];?></td>
 			<td><?php echo $opportunity['stage_id'];?></td>
 			<td><?php echo $opportunity['name'];?></td>

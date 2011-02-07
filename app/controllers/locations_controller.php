@@ -3,6 +3,11 @@ class LocationsController extends AppController {
 
 	var $name = 'Locations';
 	var $helpers = array('Html', 'Form');
+	var $paginate = array(
+		'order' => array(
+			'Location.name' => 'asc'
+		)
+	);
 
 	function index() {
 		$this->Location->recursive = 0;

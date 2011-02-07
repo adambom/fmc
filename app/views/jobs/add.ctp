@@ -6,18 +6,17 @@
 		echo $form->input('company_id', array('label'=>'Customer'));
 		echo $form->input('location_id');
 		echo $form->input('jobtype_id');
-		echo $form->input('jobcategory_id');
+		echo $form->input('jobcategory_id', array('label'=>'Job Category'));
 		echo $form->input('jobnumber');
 		echo $form->input('name');
 		echo $form->input('date');
-		echo $form->input('customerdescription');
 		echo $form->input('ponumber');
 		echo $form->input('billed');
 		echo $form->input('cost');
-		echo $form->input('status', array('value'=>'Open'));
+		//echo $form->select('status', $status_options);
+		echo $form->input('status', array('value'=>'New', 'options'=>$status_options));
 		echo $form->input('invoice');
 		echo $form->input('taxable');
-		echo $form->input('selected');
 		echo $form->input('comments');
 	?>
 	</fieldset>

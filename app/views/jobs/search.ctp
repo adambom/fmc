@@ -1,5 +1,24 @@
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.tbl_select').change(function () {
+			if($(this).val() != '') {
+				id = $(this).attr('id').replace('status', "");
+				status = $(this).val()
+				$.post('change_status/'+id+'/'+status, function(success) {
+					if(success) {
+						$('#ajax_result').html('The job status was succesfully updated to '+status);
+					} else {
+						$('#ajax_result').html('The job status could not be updated');
+					}
+					$('#ajax_result').slideDown('fast');
+				});
+			}
+		});
+	});
+</script>
 <div class="jobs index">
 <h2><?php __('Jobs');?></h2>
+<div id="ajax_result"></div>
 <?php
 echo $form->create("Job", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for'));
@@ -53,7 +72,7 @@ foreach ($results as $job):
 			<?php echo $job['Job']['date']; ?>
 		</td>
 		<td>
-			<?php echo $job['Job']['status']; ?>
+			<?php echo $form->select('status'.$job['Job']['id'], $status_options, $job['Job']['status'], array('class'=>'tbl_select', 'empty'=>false)); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $job['Job']['id'])); ?>

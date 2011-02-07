@@ -1,5 +1,24 @@
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.tbl_select').change(function () {
+			if($(this).val() != '') {
+				id = $(this).attr('id').replace('status', "");
+				status = $(this).val()
+				$.post('jobs/change_status/'+id+'/'+status, function(success) {
+					if(success) {
+						$('#ajax_result').html('The job status was succesfully updated to '+status);
+					} else {
+						$('#ajax_result').html('The job status could not be updated');
+					}
+					$('#ajax_result').slideDown('fast');
+				});
+			}
+		});
+	});
+</script>
 <div class="jobs index">
 <h2><?php __('Jobs');?></h2>
+<div id="ajax_result"></div>
 <div id="page_search">
 <?php
 echo $form->create("Job", array('action' => 'search'));
@@ -60,11 +79,12 @@ foreach ($jobs as $job):
 			<?php echo $job['Job']['date']; ?>
 		</td>
 		<td>
-			<?php echo $job['Job']['status']; ?>
+			<?php echo $form->select('status'.$job['Job']['id'], $status_options, $job['Job']['status'], array('class'=>'tbl_select', 'empty'=>false)); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $job['Job']['id'])); ?>
 			<?php echo $html->link(__('Edit', true), array('action' => 'edit', $job['Job']['id'])); ?>
+			<?php echo $html->link(__('Close', true), array('action' => 'close', $job['Job']['id'])); ?>
 			<?php echo $html->link(__('Delete', true), array('action' => 'delete', $job['Job']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $job['Job']['id'])); ?>
 		</td>
 	</tr>

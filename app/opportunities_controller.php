@@ -85,24 +85,7 @@ class OpportunitiesController extends AppController {
 				"Opportunity.shortdescription LIKE" => "%".$q."%"
 			)
 		);
-		$stages = $this->Opportunity->Stage->find('list');
-		$this->set('stages', $stages);
 		$this->set('results', $this->Opportunity->find('all', array('conditions' => $conditions)));
-	}
-	function change_stage($id = null, $stage_id) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for Opportunity', true));
-			$this->redirect(array('action'=>'index'));
-		} else {
-			$this->Opportunity->read('stage_id', $id);
-			$this->Opportunity->set('stage_id', $stage_id);
-			if($this->Opportunity->save()) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-		
 	}
 }
 ?>

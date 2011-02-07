@@ -11,14 +11,12 @@
 		echo $form->input('jobnumber');
 		echo $form->input('name');
 		echo $form->input('date');
-		echo $form->input('customerdescription');
 		echo $form->input('ponumber');
 		echo $form->input('billed');
 		echo $form->input('cost');
-		echo $form->input('status');
+		echo $form->input('status', array('options'=>$status_options));
 		echo $form->input('invoice');
 		echo $form->input('taxable');
-		echo $form->input('selected');
 		echo $form->input('comments');
 	?>
 	</fieldset>
