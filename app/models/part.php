@@ -3,6 +3,7 @@ class Part extends AppModel {
 	var $name = 'Part';
 	var $displayField = 'partnumber';
 	var $actAs = array ('Searchable');
+	var $recursive = 2;
 	var $validate = array(
 		'partcategory_id' => array(
 			'numeric' => array('rule' => array('numeric')),

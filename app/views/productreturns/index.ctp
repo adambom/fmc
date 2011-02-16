@@ -1,5 +1,16 @@
 <div class="productreturns index">
 <h2><?php __('Productreturns');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('New Productreturn', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -12,14 +23,8 @@ echo $paginator->counter(array(
 	<th><?php echo $paginator->sort('vendor_id');?></th>
 	<th><?php echo $paginator->sort('fmc_return_no');?></th>
 	<th><?php echo $paginator->sort('date');?></th>
-	<th><?php echo $paginator->sort('serial');?></th>
-	<th><?php echo $paginator->sort('reason');?></th>
-	<th><?php echo $paginator->sort('rma');?></th>
-	<th><?php echo $paginator->sort('ponumber');?></th>
 	<th><?php echo $paginator->sort('job_id');?></th>
 	<th><?php echo $paginator->sort('credit');?></th>
-	<th><?php echo $paginator->sort('credit_received');?></th>
-	<th><?php echo $paginator->sort('product_returned');?></th>
 	<th><?php echo $paginator->sort('closed');?></th>
 	<th><?php echo $paginator->sort('comments');?></th>
 	<th class="actions"><?php __('Actions');?></th>
@@ -46,28 +51,10 @@ foreach ($productreturns as $productreturn):
 			<?php echo $productreturn['Productreturn']['date']; ?>
 		</td>
 		<td>
-			<?php echo $productreturn['Productreturn']['serial']; ?>
-		</td>
-		<td>
-			<?php echo $productreturn['Productreturn']['reason']; ?>
-		</td>
-		<td>
-			<?php echo $productreturn['Productreturn']['rma']; ?>
-		</td>
-		<td>
-			<?php echo $productreturn['Productreturn']['ponumber']; ?>
-		</td>
-		<td>
 			<?php echo $html->link($productreturn['Job']['name'], array('controller' => 'jobs', 'action' => 'view', $productreturn['Job']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $productreturn['Productreturn']['credit']; ?>
-		</td>
-		<td>
-			<?php echo $productreturn['Productreturn']['credit_received']; ?>
-		</td>
-		<td>
-			<?php echo $productreturn['Productreturn']['product_returned']; ?>
 		</td>
 		<td>
 			<?php echo $productreturn['Productreturn']['closed']; ?>

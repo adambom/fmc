@@ -24,7 +24,20 @@
 <div class="productreturns form">
 <?php echo $form->create('Productreturn');?>
 	<fieldset>
+    	<div class="actions">
+            <ul>
+                <li><?php echo $html->link(__('Delete', true), array('action' => 'delete', $form->value('Productreturn.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $form->value('Productreturn.id'))); ?></li>
+                <li><?php echo $html->link(__('List Productreturns', true), array('action' => 'index'));?></li>
+                <li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+            </ul>
+        </div>
  		<legend><?php __('Edit Productreturn');?></legend>
+        <div class="submit"><input type="submit" value="Submit"></div>
 	<?php
 		echo $form->input('id');
 		echo $form->input('vendor_id');

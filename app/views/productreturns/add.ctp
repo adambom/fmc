@@ -22,19 +22,19 @@
 </script>
 <div class="productreturns form">
 <?php echo $form->create('Productreturn');?>
-	<div class="actions">
-        <ul>
-            <li><?php echo $html->link(__('List Productreturns', true), array('action' => 'index'));?></li>
-            <li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
-            <li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
-            <li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
-            <li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
-            <li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
-            <li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
-        </ul>
-    </div>
     
 	<fieldset>
+    	<div class="actions">
+            <ul>
+                <li><?php echo $html->link(__('List Productreturns', true), array('action' => 'index'));?></li>
+                <li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+            </ul>
+        </div>
  		<legend><?php __('Add Productreturn');?></legend>
         <div class="submit"><input type="submit" value="Submit"></div>
 	<?php

@@ -1,5 +1,10 @@
 <div class="productreturns view">
 <h2><?php  __('Productreturn');?></h2>
+	<div class="actions">
+		<ul>
+			<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add'));?> </li>
+		</ul>
+	</div>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -93,15 +98,15 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Vendor Id'); ?></th>
-		<th><?php __('Manufacturer Id'); ?></th>
-		<th><?php __('Partcategory Id'); ?></th>
-		<th><?php __('Partsubcategory Id'); ?></th>
-		<th><?php __('Deviceid'); ?></th>
-		<th><?php __('Partnumber'); ?></th>
+		<th><?php __('Vendor'); ?></th>
+		<th><?php __('Manufacturer'); ?></th>
+		<th><?php __('Part Category'); ?></th>
+		<th><?php __('Part Subcategory'); ?></th>
+		<th><?php __('Device Id'); ?></th>
+		<th><?php __('Part Number'); ?></th>
 		<th><?php __('Description'); ?></th>
 		<th><?php __('Price'); ?></th>
-		<th><?php __('Materialcost'); ?></th>
+		<th><?php __('Material Cost'); ?></th>
 		<th><?php __('Specpath'); ?></th>
 		<th><?php __('Guidepath'); ?></th>
 		<th><?php __('Type'); ?></th>
@@ -117,10 +122,10 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $part['id'];?></td>
-			<td><?php echo $part['vendor_id'];?></td>
-			<td><?php echo $part['manufacturer_id'];?></td>
-			<td><?php echo $part['partcategory_id'];?></td>
-			<td><?php echo $part['partsubcategory_id'];?></td>
+			<td><?php echo $part['Vendor']['name'];?></td>
+			<td><?php echo $part['Manufacturer']['name'];?></td>
+			<td><?php echo $part['Partcategory']['name'];?></td>
+			<td><?php echo $part['partsubcategory']['name'];?></td>
 			<td><?php echo $part['deviceid'];?></td>
 			<td><?php echo $part['partnumber'];?></td>
 			<td><?php echo $part['description'];?></td>
