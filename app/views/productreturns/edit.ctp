@@ -17,7 +17,14 @@
 		echo $form->input('product_returned');
 		echo $form->input('closed');
 		echo $form->input('comments');
-		print_r($parts);
+		//print_r($parts);
+		$options = array();
+		foreach($parts as $part) {
+			array_push($options, $part['Part']['id']);
+			$options[$part['Part']['id']] = $part['Part']['deviceid'];
+		}
+		
+		$print_r($options);
 		//echo $form->input('Part');
 	?>
 	</fieldset>
