@@ -3,9 +3,9 @@
 		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
-				alert($(this).val())
+				var label = $(this).text();
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
-					label = $(this).text();
+					alert(label)
 					label+= " - (" + details.Part.deviceid + ") " + details.Part.description;
 					$(this).text(label);
 				});
