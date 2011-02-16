@@ -1,10 +1,19 @@
 <div class="productreturns view">
 <h2><?php  __('Productreturn');?></h2>
 	<div class="actions">
-		<ul>
-			<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
+        <ul>
+            <li><?php echo $html->link(__('Edit Productreturn', true), array('action' => 'edit', $productreturn['Productreturn']['id'])); ?> </li>
+            <li><?php echo $html->link(__('Delete Productreturn', true), array('action' => 'delete', $productreturn['Productreturn']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $productreturn['Productreturn']['id'])); ?> </li>
+            <li><?php echo $html->link(__('List Productreturns', true), array('action' => 'index')); ?> </li>
+            <li><?php echo $html->link(__('New Productreturn', true), array('action' => 'add')); ?> </li>
+            <li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+            <li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+            <li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+            <li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
+            <li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
+            <li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+        </ul>
+    </div>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
