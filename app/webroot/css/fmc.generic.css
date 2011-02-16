@@ -378,6 +378,7 @@ div.actions ul {
 	padding: 0;
 }
 div.actions li {
+	font-size:0.8em;
 	display: inline;
 	list-style-type: none;
 	line-height: 2em;
