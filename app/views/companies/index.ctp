@@ -2,7 +2,7 @@
 <h2><?php __('Companies');?></h2>
 <?php
 echo $form->create("Company", array('action' => 'search'));
-echo $form->input("q", array('label' => 'Search for'));
+echo $form->input("q", array('label' => 'Search for', 'class'=>'search'));
 echo $form->end("Search");
 ?>
 <p>

@@ -39,16 +39,18 @@
 		echo $scripts_for_layout;
 		
 		echo $javascript->link('navigation');
-		echo $html->script('prototype');
-		echo $html->script('scriptaculous'); 
 
 	?>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#search_type").change(function() {				
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
+			});
+			$('input.search').autocomplete({
+				source: '/autocomplete/'+$(this).val()
 			});
 		});
 	</script>
