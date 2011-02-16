@@ -1,8 +1,8 @@
 <?php
-/* Productreturns Test cases generated on: 2011-02-16 09:02:15 : 1297849155*/
-App::import('Controller', 'Productreturns');
+/* Productreturn Test cases generated on: 2011-02-16 09:02:53 : 1297849133*/
+App::import('Controller', 'Productreturn');
 
-class TestProductreturnsController extends ProductreturnsController {
+class TestProductreturnController extends ProductreturnController {
 	var $autoRender = false;
 
 	function redirect($url, $status = null, $exit = true) {
@@ -10,16 +10,16 @@ class TestProductreturnsController extends ProductreturnsController {
 	}
 }
 
-class ProductreturnsControllerTestCase extends CakeTestCase {
+class ProductreturnControllerTestCase extends CakeTestCase {
 	var $fixtures = array('app.productreturn', 'app.vendor', 'app.company', 'app.customer', 'app.job', 'app.location', 'app.jobtype', 'app.jobcategory', 'app.opportunity', 'app.stage', 'app.opportunities_vendor', 'app.part', 'app.partcategory', 'app.partsubcategory', 'app.productreturns_part', 'app.employee', 'app.companies_employee');
 
 	function startTest() {
-		$this->Productreturns =& new TestProductreturnsController();
-		$this->ProductreturnsController->constructClasses();
+		$this->Productreturn =& new TestProductreturnController();
+		$this->ProductreturnController->constructClasses();
 	}
 
 	function endTest() {
-		unset($this->Productreturns);
+		unset($this->Productreturn);
 		ClassRegistry::flush();
 	}
 

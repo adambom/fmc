@@ -1,5 +1,5 @@
 <div class="productreturns index">
-<h2><?php __('Product Returns');?></h2>
+<h2><?php __('Productreturns');?></h2>
 <p>
 <?php
 echo $paginator->counter(array(
@@ -10,6 +10,18 @@ echo $paginator->counter(array(
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
 	<th><?php echo $paginator->sort('vendor_id');?></th>
+	<th><?php echo $paginator->sort('fmc_return_no');?></th>
+	<th><?php echo $paginator->sort('date');?></th>
+	<th><?php echo $paginator->sort('serial');?></th>
+	<th><?php echo $paginator->sort('reason');?></th>
+	<th><?php echo $paginator->sort('rma');?></th>
+	<th><?php echo $paginator->sort('ponumber');?></th>
+	<th><?php echo $paginator->sort('job_id');?></th>
+	<th><?php echo $paginator->sort('credit');?></th>
+	<th><?php echo $paginator->sort('credit_received');?></th>
+	<th><?php echo $paginator->sort('product_returned');?></th>
+	<th><?php echo $paginator->sort('closed');?></th>
+	<th><?php echo $paginator->sort('comments');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -25,7 +37,43 @@ foreach ($productreturns as $productreturn):
 			<?php echo $productreturn['Productreturn']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($productreturn['Vendor']['name'], array('controller' => 'companies', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
+			<?php echo $html->link($productreturn['Vendor']['name'], array('controller' => 'vendors', 'action' => 'view', $productreturn['Vendor']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['fmc_return_no']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['date']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['serial']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['reason']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['rma']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['ponumber']; ?>
+		</td>
+		<td>
+			<?php echo $html->link($productreturn['Job']['name'], array('controller' => 'jobs', 'action' => 'view', $productreturn['Job']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['credit']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['credit_received']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['product_returned']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['closed']; ?>
+		</td>
+		<td>
+			<?php echo $productreturn['Productreturn']['comments']; ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $productreturn['Productreturn']['id'])); ?>
@@ -43,10 +91,10 @@ foreach ($productreturns as $productreturn):
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $html->link(__('New Product Return', true), array('action' => 'add')); ?></li>
-		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('New Productreturn', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

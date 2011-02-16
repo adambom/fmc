@@ -4,7 +4,18 @@
  		<legend><?php __('Add Productreturn');?></legend>
 	<?php
 		echo $form->input('vendor_id');
-		echo $form->input('Part');
+		echo $form->input('fmc_return_no');
+		echo $form->input('date');
+		echo $form->input('serial');
+		echo $form->input('reason');
+		echo $form->input('rma');
+		echo $form->input('ponumber');
+		echo $form->input('job_id');
+		echo $form->input('credit');
+		echo $form->input('credit_received');
+		echo $form->input('product_returned');
+		echo $form->input('closed');
+		echo $form->input('comments');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>
@@ -14,7 +25,7 @@
 		<li><?php echo $html->link(__('List Productreturns', true), array('action' => 'index'));?></li>
 		<li><?php echo $html->link(__('List Vendors', true), array('controller' => 'vendors', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
-		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
-		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
