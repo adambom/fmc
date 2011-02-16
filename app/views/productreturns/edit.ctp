@@ -5,6 +5,7 @@
 			$("#PartPart option:selected").each(function () {
 				var label = $(this).text();
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
+					details = '{"Part":{"deviceid":"EC-LY-B","description":"IP to Lon Router, 1 IP x 1 FT-10"}}'
 					details = jQuery.parseJSON(details)
 					//label+= " - (" + details.Part['deviceid'] + ") " + details.Part['description'];
 					//return label;
