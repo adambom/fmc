@@ -7,7 +7,7 @@
 				label = $.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					//label+= " - (" + details.Part['deviceid'] + ") " + details.Part['description'];
 					//return label;
-					alert(details.Part);
+					alert(details['Part']);
 				});
 				$(this).text(label);
 			});
