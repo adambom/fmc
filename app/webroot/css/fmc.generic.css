@@ -567,4 +567,5 @@ form.search input.submit{
 }
 p.result_summary {
 	clear:both;
+	padding-top:20px;
 }
