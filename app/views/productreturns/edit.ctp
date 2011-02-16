@@ -4,11 +4,12 @@
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
 				var label = $(this).text();
-				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
+				label = $.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					alert(label)
 					label+= " - (" + details.Part.deviceid + ") " + details.Part.description;
-					$(this).text(label);
+					return label;
 				});
+				$(this).text(label);
 			});
 		})
 	});
