@@ -374,14 +374,14 @@ p.error em {
 
 /*  Actions  */
 div.actions ul {
-	margin: 0px 0;
+	margin: 0px 0 10px 0;
 	padding: 0;
 }
 div.actions li {
 	display: inline;
 	list-style-type: none;
 	line-height: 2em;
-	margin: 0 2em 2em 0;
+	margin: 0 2em 0 0;
 	white-space: nowrap;
 }
 div.actions ul li a {
