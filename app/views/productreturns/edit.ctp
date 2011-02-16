@@ -4,7 +4,7 @@
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
 				var label = $(this).text();
-				label = $.getJSON('../../parts/getDetails/'+$(this).val(), function(details) {
+				$.getJSON('../../parts/getDetails/'+$(this).val(), function(details) {
 					//label+= " - (" + details.Part['deviceid'] + ") " + details.Part['description'];
 					//return label;
 					alert(details['Part']);
