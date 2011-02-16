@@ -5,9 +5,10 @@
 			$("#PartPart option:selected").each(function () {
 				var label = $(this).text();
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
+					details = jQuery.parseJSON(details)
 					//label+= " - (" + details.Part['deviceid'] + ") " + details.Part['description'];
 					//return label;
-					alert(details['Part']);
+					alert(details.Part.deviceid);
 				});
 				$(this).text(label);
 			});
