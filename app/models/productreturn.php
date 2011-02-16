@@ -2,6 +2,7 @@
 class Productreturn extends AppModel {
 	var $name = 'Productreturn';
 	var $displayField = 'comments';
+	var $order = array('date' => 'desc');
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
