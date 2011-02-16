@@ -90,7 +90,7 @@ class CompaniesController extends AppController {
 	function autoComplete($q = null) {
 		if(strlen($q)>2) {
 			$conditions = array("Company.name LIKE" => "%".$q."%");
-			$this->set('companies', $this->Company->find('list', $conditions));
+			$this->set('results', $this->Company->find('list', $conditions));
 			$this->layout = 'ajax';
 		}
 	}
