@@ -8,15 +8,12 @@
 		<li><?php echo $html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-</div>
-<span><form method="post" class="search" action="/fmc/companies/search">
-	<input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ">
-	<div class="submit">
-    	<input type="submit" value="Search">
-    </div>
-</form></span>
-
-<p class="result_summary">
+<?php  
+    echo $form->create("Company",array('action' => 'search')); 
+    echo $form->input("q", array('label' => 'Search for', 'value'=>$q)); 
+    echo $form->end("Search"); 
+?> 
+<p>
 <?php
 	echo $paginator->counter(array(
 	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
