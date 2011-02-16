@@ -3,7 +3,7 @@
 		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
-				$.post('../../parts/getDetails'+$(this).val(), function(details) {
+				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					label = $(this).text();
 					label+= " - (" + details.deviceid + ") " + details.description;
 					$(this).text(label);
