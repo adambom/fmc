@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		/*$('#PartPart').change(function() {
+		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
@@ -10,7 +10,7 @@
 					$(this).text(label);
 				});
 			});
-		}).change();*/
+		})
 	});
 </script>
 
