@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	/*$(document).ready(function() {
+	$(function() {
 		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart option:selected").each(function () {
@@ -11,7 +11,7 @@
 				});
 			});
 		}).change();
-	});*/
+	});
 </script>
 
 <div class="productreturns form">
