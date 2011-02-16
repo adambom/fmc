@@ -49,13 +49,13 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			$('#CompanyQ').keyup(function() {
+			/*$('#CompanyQ').keyup(function() {
 				if($(this).val().length > 2) {
 					$.get('companies/autocomplete/'+$(this).val(), function(results) {
 						alert(results);	
 					});
 				}
-			});
+			});*/
 		});
 	</script>
 </head>
