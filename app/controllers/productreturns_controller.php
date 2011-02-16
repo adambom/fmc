@@ -53,7 +53,7 @@ class ProductreturnsController extends AppController {
 		$jobs = $this->Productreturn->Job->find('list');
 		$parts = $this->Productreturn->Part->find('list', array(
 			'order' => array('Part.partnumber DESC'),
-			'fields' => array('Part.id', 'CONCAT(Part.partnumber, Part.deviceid)')
+			'fields' => array('Part.id', 'CONCAT(Part.partnumber, Part.deviceid) AS desc')
 		));
 		/*$partDescriptions = $this->Productreturn->Part->find('all', array(
 			'order'=> array('Part.partnumber DESC'),
