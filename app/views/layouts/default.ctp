@@ -49,7 +49,7 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			$('#CompanyQ').click(function() {
+			$('#CompanyQ').change(function() {
 				$.get('companies/autocomplete/'+$(this).val(), function(results) {
 					alert(results);	
 				});
