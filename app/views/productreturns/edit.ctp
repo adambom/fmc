@@ -2,7 +2,8 @@
 	$(document).ready(function() {
 		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
-			$("#PartPart option:selected").each(function () {
+			$("select option:selected").each(function () {
+				alert($(this).val())
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					label = $(this).text();
 					alert(details);
