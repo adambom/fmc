@@ -5,8 +5,7 @@
 			$("#PartPart option:selected").each(function () {
 				var label = $(this).text();
 				label = $.post('../../parts/getDetails/'+$(this).val(), function(details) {
-					alert(label)
-					label+= " - (" + details.Part.deviceid + ") " + details.Part.description;
+					label+= " - (" + details.Part['deviceid'] + ") " + details.Part['description'];
 					return label;
 				});
 				$(this).text(label);
