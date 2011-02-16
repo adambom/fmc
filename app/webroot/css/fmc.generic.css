@@ -552,6 +552,7 @@ div.code-coverage-results span.result-good {
 }
 form.search input.search{
 	float:left;
+	width:300px;
 }
 form.search div.submit{
 	float:left;
