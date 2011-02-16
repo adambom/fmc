@@ -51,7 +51,10 @@ class ProductreturnsController extends AppController {
 		}
 		$vendors = $this->Productreturn->Vendor->find('list', array('order' => array('Vendor.name ASC')));
 		$jobs = $this->Productreturn->Job->find('list');
-		$parts = $this->Productreturn->Part->find('all', array('order' => array('Part.partnumber DESC')));
+		$parts = $this->Productreturn->Part->find('list', array(
+			'order' => array('Part.partnumber DESC'),
+			'fields' => array('Part.id', 'Part.partnumber', 'Part.deviceid', 'Part.description')
+		));
 		$this->set(compact('vendors', 'jobs', 'parts'));
 	}
 
