@@ -569,3 +569,11 @@ p.result_summary {
 	clear:both;
 	padding-top:20px;
 }
+#partInfo {
+	font-size:1.2em;
+	color:#CCCCCC;
+}
+#partInfo label {
+	font-weight:bold;
+	color:#000;
+}
