@@ -8,7 +8,7 @@
 			});
 		}
 		
-		$('#PartPart').change(function() {
+		$('#PartPart').bind('change, keypress', function() {
 			$("#PartPart").change(function () {
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					details = jQuery.parseJSON(details)
