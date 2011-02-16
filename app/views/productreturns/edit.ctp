@@ -42,7 +42,7 @@
 		echo $form->input('comments');
 		echo $form->input('Part');
 	?>
-    	<div id="partInfo"><span id="deviceid"></span> <span id="description"</span></span>
+    	<div id="partInfo"><span id="deviceid"></span> <span id="description"></span></div>
 	</fieldset>
 <?php echo $form->end('Submit');?>
 </div>
