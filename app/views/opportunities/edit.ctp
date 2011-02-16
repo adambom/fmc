@@ -18,7 +18,20 @@
 <?php echo $form->create('Opportunity');?>
 	<fieldset>
 	<?php echo $form->input('id'); ?>
+    	<div class="actions">
+            <ul>
+                <li><?php echo $html->link(__('Delete', true), array('action' => 'delete', $form->value('Opportunity.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $form->value('Opportunity.id'))); ?></li>
+                <li><?php echo $html->link(__('List Opportunities', true), array('action' => 'index'));?></li>
+                <li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Opportunity Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Opportunity Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+            </ul>
+        </div>
  		<legend><?php __('Edit Opportunity');?></legend>
+        <div class="submit"><input type="submit" value="Submit"></div>
 		<table class="add_form">
 			<tr>
 				<td><?php echo $form->input('company_id', array('label'=>'Customer')); ?></td>

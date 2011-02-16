@@ -19,6 +19,17 @@
 </script>
 <div class="opportunities index">
 <h2><?php __('Opportunities');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('New Opportunity', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Job Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <div id="ajax_result"></div>
 <?php
 echo $form->create("Opportunity", array('action' => 'search'));

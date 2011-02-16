@@ -1,7 +1,15 @@
 <div class="employees form">
 <?php echo $form->create('Employee');?>
 	<fieldset>
+    <div class="actions">
+        <ul>
+            <li><?php echo $html->link(__('List Contacts', true), array('action' => 'index'));?></li>
+            <li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+            <li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+        </ul>
+    </div>
  		<legend><?php __('Add Contact');?></legend>
+        <div class="submit"><input type="submit" value="Submit"></div>
 		<table class="add_form">
 			<tr>
 				<td colspan=1><?php echo $form->input('title'); ?></td>

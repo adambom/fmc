@@ -1,5 +1,12 @@
 <div class="employees index">
 <h2><?php __('Contacts');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('New Contact', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <?php
 echo $form->create("Employee", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for'));

@@ -1,7 +1,21 @@
 <div class="jobs form">
 <?php echo $form->create('Job');?>
 	<fieldset>
+    	<div class="actions">
+            <ul>
+                <li><?php echo $html->link(__('List Jobs', true), array('action' => 'index'));?></li>
+                <li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Companies', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Locations', true), array('controller' => 'locations', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Location', true), array('controller' => 'locations', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Job Types', true), array('controller' => 'jobtypes', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Job Type', true), array('controller' => 'jobtypes', 'action' => 'add')); ?> </li>
+                <li><?php echo $html->link(__('List Job Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+            </ul>
+        </div>
  		<legend><?php __('Add Job');?></legend>
+        <div class="submit"><input type="submit" value="Submit"></div>
 	<?php
 		echo $form->input('company_id', array('label'=>'Customer'));
 		echo $form->input('location_id');

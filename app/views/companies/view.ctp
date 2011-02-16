@@ -1,5 +1,15 @@
 <div class="companies view">
 <h2><?php  __('Company');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('Edit Company', true), array('action' => 'edit', $company['Company']['id'])); ?> </li>
+		<li><?php echo $html->link(__('Delete Company', true), array('action' => 'delete', $company['Company']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $company['Company']['id'])); ?> </li>
+		<li><?php echo $html->link(__('List Companies', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>

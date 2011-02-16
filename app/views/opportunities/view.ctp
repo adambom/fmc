@@ -1,5 +1,19 @@
 <div class="opportunities view">
 <h2><?php  __('Opportunity');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('Edit Opportunity', true), array('action' => 'edit', $opportunity['Opportunity']['id'])); ?> </li>
+		<li><?php echo $html->link(__('Delete Opportunity', true), array('action' => 'delete', $opportunity['Opportunity']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $opportunity['Opportunity']['id'])); ?> </li>
+		<li><?php echo $html->link(__('List Opportunities', true), array('action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Opportunity', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Opportunity Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Cpportunity Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>

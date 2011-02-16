@@ -1,6 +1,19 @@
 <?php $paginator->options(array('url' =>  array($q))); ?>
 <div class="parts index">
 <h2><?php __('Parts');?></h2>
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('New Part', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Part Categories', true), array('controller' => 'partcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part Category', true), array('controller' => 'partcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Part Subcategories', true), array('controller' => 'partsubcategories', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part Subcategory', true), array('controller' => 'partsubcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Product Returns', true), array('controller' => 'productreturns', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Product Return', true), array('controller' => 'productreturns', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <?php
 echo $form->create("Part", array('action' => 'search'));
 echo $form->input("q", array('label' => 'Search for', 'value'=>$q));

@@ -1,7 +1,16 @@
 <div class="employees form">
 <?php echo $form->create('Employee');?>
 	<fieldset>
+    	<div class="actions">
+            <ul>
+                <li><?php echo $html->link(__('Delete', true), array('action' => 'delete', $form->value('Employee.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $form->value('Employee.id'))); ?></li>
+                <li><?php echo $html->link(__('List Contacts', true), array('action' => 'index'));?></li>
+                <li><?php echo $html->link(__('List Companies', true), array('controller' => 'companies', 'action' => 'index')); ?> </li>
+                <li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+            </ul>
+        </div>
  		<legend><?php __('Edit Contact');?></legend>
+        <div class="submit"><input type="submit" value="Submit"></div>
 		<?php echo $form->input('id'); ?>
 		<table class="add_form">
 			<tr>
