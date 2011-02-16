@@ -18,7 +18,7 @@
 		echo $form->input('closed');
 		echo $form->input('comments');
 		//print_r($partDescriptions);
-		echo $form->input('Part', array('after'=>$partDescriptions['Part']['description']));
+		echo $form->input('Part', array('after'=>$partDescriptions['description']));
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>
