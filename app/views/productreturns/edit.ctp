@@ -24,7 +24,7 @@
 			$options[$part['Part']['id']] = $part['Part']['deviceid'];
 		}
 		
-		$print_r($options);
+		print_r($options);
 		//echo $form->input('Part');
 	?>
 	</fieldset>
