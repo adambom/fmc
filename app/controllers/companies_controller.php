@@ -2,7 +2,7 @@
 class CompaniesController extends AppController {
 
 	var $name = 'Companies';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form','Ajax','Javascript');
 	var $paginate = array(
 		'order' => array(
 			'Company.name' => 'asc'
@@ -86,6 +86,11 @@ class CompaniesController extends AppController {
 		$conditions = array("Company.name LIKE" => "%".$q."%");
 		$this->set('results', $this->paginate('Company', $conditions));
 		//$this->set('results', $this->Company->find('all', array('conditions' => $conditions)));
+	}
+	function autoComplete($q = null) {
+		$conditions = array("Company.name LIKE" => "%".$this->data['Company']['name']."%");
+		$this->set('companies', $this->Company->find('all', $conditions));
+		$this->layout = 'ajax';
 	}
 }
 ?>

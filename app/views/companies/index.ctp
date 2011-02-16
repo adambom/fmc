@@ -53,3 +53,6 @@ foreach ($companies as $company):
 		<li><?php echo $html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php echo $form->create('Company', array('url' => '/companies/index')); ?>
+	<?php echo $ajax->autoComplete('Company.name', '/companies/autoComplete')?>
+<?php echo $form->end('View Company')?>
