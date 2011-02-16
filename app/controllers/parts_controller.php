@@ -100,11 +100,7 @@ class PartsController extends AppController {
 	function getDetails($id = null) {
 		$this->layout = 'ajax';
 		if($id) {
-			$this->set('part', $this->Part->find('list',array(
-				'fields'=>'Part.deviceid', 'Part.description',
-				'conditions' => array('Part.id' => $id),
-				'recursive' => 0
-			)));
+			$this->set('part', $this->Part->read(array('Part.deviceid', 'Part.description'), $id));
 		}
 	}
 }
