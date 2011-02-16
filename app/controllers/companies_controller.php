@@ -88,9 +88,11 @@ class CompaniesController extends AppController {
 		//$this->set('results', $this->Company->find('all', array('conditions' => $conditions)));
 	}
 	function autoComplete($q = null) {
-		$conditions = array("Company.name LIKE" => "%".$this->data['Company']['name']."%");
-		$this->set('companies', $this->Company->find('all', $conditions));
-		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array("Company.name LIKE" => "%".$q."%");
+			$this->set('companies', $this->Company->find('list', $conditions));
+			$this->layout = 'ajax';
+		}
 	}
 }
 ?>

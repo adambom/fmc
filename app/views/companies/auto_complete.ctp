@@ -1,5 +1,5 @@
 <ul>
- <?php foreach($companies as $company): ?>
-     <li><?php echo $form->link($post['Company']['name'], array('controller'=>'companies', 'action'=>'view')); ?></li>
+ <?php foreach($results as $company): ?>
+     <li><?php echo $form->link($company['Company']['name'], array('controller'=>'companies', 'action'=>'view')); ?></li>
  <?php endforeach; ?>
 </ul> 
