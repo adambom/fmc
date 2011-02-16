@@ -557,3 +557,6 @@ form.search div.submit{
 	float:left;
 	clear:none;
 }
+p.result_summary {
+	clear:both;
+}
