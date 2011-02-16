@@ -1,7 +1,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
+		if($('#PartPart').val()) {
+			$.post('../../parts/getDetails/'+$(this).val(), function(details) {
+				details = jQuery.parseJSON(details)
+				$('#partInfo #deviceid').html('<label>Device ID:</label> '+details.Part.deviceid);
+				$('#partInfo #description').html('<label>Description:</label> '+details.Part.description);
+			});
+		}
+		
 		$('#PartPart').change(function() {
-			$('#PartPart option').removeClass('visibleDescription');
 			$("#PartPart").change(function () {
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					details = jQuery.parseJSON(details)
