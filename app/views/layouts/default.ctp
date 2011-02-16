@@ -50,9 +50,10 @@
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
 			$('input.search').change(function() {
-				$.get('/autocomplete/'+$(this).val(), function(results) {
+				alert($(this).val());
+				/*$.get('/autocomplete/'+$(this).val(), function(results) {
 					alert(results);	
-				});
+				});*/
 			});
 		});
 	</script>
