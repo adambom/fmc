@@ -5,8 +5,8 @@
 			$("#PartPart").change(function () {
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					details = jQuery.parseJSON(details)
-					$('#partInfo #deviceid').text('<label>Device ID:</label> '+details.Part.deviceid);
-					$('#partInfo #description').text('<label>Description:</label> '+details.Part.description);
+					$('#partInfo #deviceid').html('<label>Device ID:</label> '+details.Part.deviceid);
+					$('#partInfo #description').html('<label>Description:</label> '+details.Part.description);
 				});
 				
 			});
