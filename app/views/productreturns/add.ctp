@@ -33,10 +33,11 @@
             <li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
         </ul>
     </div>
-    <?php echo $this->Form->submit(); ?>
+    
 	<fieldset>
  		<legend><?php __('Add Productreturn');?></legend>
 	<?php
+		echo $form->input('Submit', array('type'=>'submit'));
 		echo $form->input('vendor_id');
 		echo $form->input('fmc_return_no');
 		echo $form->input('date');
