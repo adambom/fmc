@@ -2,12 +2,11 @@
 	$(document).ready(function() {
 		$('#PartPart').change(function() {
 			$('#PartPart option').removeClass('visibleDescription');
-			$("#PartPart option:selected").each(function () {
-				var label = $(this).text();
+			$("#PartPart").change(function () {
 				$.post('../../parts/getDetails/'+$(this).val(), function(details) {
 					details = jQuery.parseJSON(details)
-					label+= " - (" + details.Part.deviceid + ") " + details.Part.description;
-					$('#PartPart option:selected').text(label);
+					$('#partInfo #deviceid').text('Device ID: '+details.Part.deviceid);
+					$('#partInfo #description').text('Device ID: '+details.Part.description);
 				});
 				
 			});
@@ -36,6 +35,7 @@
 		echo $form->input('comments');
 		echo $form->input('Part');
 	?>
+    	<div id="partInfo"><span id="deviceid"></span> <span id="description"</span></span>
 	</fieldset>
 <?php echo $form->end('Submit');?>
 </div>
