@@ -1,10 +1,12 @@
 <div class="companies index">
 <h2><?php __('Companies');?></h2>
-<?php
-echo $form->create("Company", array('action' => 'search'));
-echo $form->input("q", array('label' => 'Search for', 'class'=>'search'));
-echo $form->end("Search");
-?>
+
+<form method="post" class="search" action="/fmc/companies/search">
+	<input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ">
+	<div class="submit">
+    	<input type="submit" value="Search">
+    </div>
+</form>
 <p>
 <?php
 echo $paginator->counter(array(

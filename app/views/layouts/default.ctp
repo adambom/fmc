@@ -50,9 +50,11 @@
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
 			$('#CompanyQ').keyup(function() {
-				$.get('companies/autocomplete/'+$(this).val(), function(results) {
-					alert(results);	
-				});
+				if($(this).val().length > 2) {
+					$.get('companies/autocomplete/'+$(this).val(), function(results) {
+						alert(results);	
+					});
+				}
 			});
 		});
 	</script>
