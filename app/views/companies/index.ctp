@@ -1,12 +1,19 @@
 <div class="companies index">
 <h2><?php __('Companies');?></h2>
-
-<form method="post" class="search" action="/fmc/companies/search">
+<div class="actions">
+	<ul>
+		<li><?php echo $html->link(__('New Company', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link(__('List Employees', true), array('controller' => 'employees', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+<span><form method="post" class="search" action="/fmc/companies/search">
 	<input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ">
 	<div class="submit">
     	<input type="submit" value="Search">
     </div>
-</form>
+</form></span>
+
 <p class="result_summary">
 <?php
 echo $paginator->counter(array(
