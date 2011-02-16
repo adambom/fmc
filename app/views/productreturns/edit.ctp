@@ -17,6 +17,7 @@
 		echo $form->input('product_returned');
 		echo $form->input('closed');
 		echo $form->input('comments');
+		print_r($parts);
 		echo $form->input('Part', array('after'=>$parts['Part']['description']));
 	?>
 	</fieldset>
