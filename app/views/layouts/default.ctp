@@ -50,7 +50,7 @@
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
 			$('#CompanyQ').click(function() {
-				$.get('/autocomplete/'+$(this).val(), function(results) {
+				$.get('autocomplete/'+$(this).val(), function(results) {
 					alert(results);	
 				});
 			});
