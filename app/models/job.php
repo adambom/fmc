@@ -2,7 +2,7 @@
 class Job extends AppModel {
 	var $name = 'Job';
 	var $actAs = array ('Searchable');
-	var $order = 'Job.date DESC';
+	var $order = array('Job.id' => 'desc', 'Job.status'=>'asc', 'Job.date' => 'desc');
 	var $validate = array(
 		'customer_id' => array(
 			'numeric' => array('rule' => array('numeric')),

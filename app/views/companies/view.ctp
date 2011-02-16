@@ -33,23 +33,8 @@
 		<th><?php __('First Name'); ?></th>
 		<th><?php __('Last Name'); ?></th>
 		<th><?php __('Title'); ?></th>
-		<th><?php __('Address'); ?></th>
-		<th><?php __('City'); ?></th>
-		<th><?php __('State'); ?></th>
-		<th><?php __('Zip'); ?></th>
-		<th><?php __('Country'); ?></th>
 		<th><?php __('Phone'); ?></th>
-		<th><?php __('Fax'); ?></th>
-		<th><?php __('Home Phone'); ?></th>
-		<th><?php __('Cell'); ?></th>
-		<th><?php __('Pager'); ?></th>
-		<th><?php __('Type'); ?></th>
 		<th><?php __('Email'); ?></th>
-		<th><?php __('Url'); ?></th>
-		<th><?php __('Misc'); ?></th>
-		<th><?php __('Notes'); ?></th>
-		<th><?php __('Newsletter'); ?></th>
-		<th><?php __('Xmas'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -65,32 +50,8 @@
 			<td><?php echo $employee['fname'];?></td>
 			<td><?php echo $employee['lname'];?></td>
 			<td><?php echo $employee['title'];?></td>
-			<?php
-				$address = $employee['address1'];
-				if($employee['address2'] != '') {
-					$address = $employee['address1'].'<br>'.$employee['address2'];
-				}
-				if ($employee['address3'] != '') {
-					$address = $address.'<br>'.$employee['address3'];
-				}
-			?>
-			<td><?php echo $address; ?></td>
-			<td><?php echo $employee['city'];?></td>
-			<td><?php echo $employee['state'];?></td>
-			<td><?php echo $employee['zip'];?></td>
-			<td><?php echo $employee['country'];?></td>
 			<td><?php echo $employee['phone'];?></td>
-			<td><?php echo $employee['fax'];?></td>
-			<td><?php echo $employee['home_phone'];?></td>
-			<td><?php echo $employee['cell'];?></td>
-			<td><?php echo $employee['pager'];?></td>
-			<td><?php echo $employee['type'];?></td>
-			<td><?php echo $employee['email'];?></td>
-			<td><?php echo $employee['url'];?></td>
-			<td><?php echo $employee['misc'];?></td>
-			<td><?php echo $employee['notes'];?></td>
-			<td><?php echo $employee['newsletter'];?></td>
-			<td><?php echo $employee['xmas'];?></td>
+			<td><?php if($employee['email']){ ?><a href="mailto:<?php echo $employee['email'];?>"><?php } ?><?php echo $employee['email'];?><?php if($employee['email']){ ?></a><?php } ?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'employees', 'action' => 'view', $employee['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'employees', 'action' => 'edit', $employee['id'])); ?>

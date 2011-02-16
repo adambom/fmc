@@ -51,6 +51,7 @@
 				<td><?php echo $form->input('Vendor'); ?></td>
 				<td><?php echo $form->input('createddate', array('label'=>'Date Created')); ?></td>
 			</tr>
+			<?php echo $form->input('q', array('type'=>'hidden', 'value'=>$q)); ?>
 		</table>
 	<?php
 		/*echo $form->input('id');

@@ -35,7 +35,7 @@ class PartsController extends AppController {
 		$this->set(compact('vendors', 'manufacturers', 'partcategories', 'partsubcategories', 'productreturns'));
 	}
 
-	function edit($id = null) {
+	function edit($id = null, $q = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Part', true));
 			$this->redirect(array('action' => 'index'));
@@ -43,12 +43,21 @@ class PartsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Part->save($this->data)) {
 				$this->Session->setFlash(__('The Part has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				if($this->data['Part']['q']) {
+					$this->redirect(array('action' => 'search', $this->data['Part']['q']));
+				} else {
+					$this->redirect(array('action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash(__('The Part could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
+			if($q) {
+				$this->set('q', $q);
+			} else {
+				$this->set('q', null);
+			}
 			$this->data = $this->Part->read(null, $id);
 		}
 		$vendors = $this->Part->Vendor->find('list', array('order' => array('Vendor.name ASC')));
@@ -71,8 +80,10 @@ class PartsController extends AppController {
 		$this->Session->setFlash(__('Part was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	function search() {
-		$q = $this->data['Part']['q'];
+	function search($q = null) {
+		if(!$q) {
+			$q = $this->data['Part']['q'];
+		}
 		$conditions = array(
 			"OR" => array (
 				"Part.description LIKE" => "%".$q."%",
@@ -82,7 +93,9 @@ class PartsController extends AppController {
 				"Manufacturer.name LIKE" => "%".$q."%"
 			)
 		);
-		$this->set('results', $this->Part->find('all', array('conditions' => $conditions)));
+		$this->set('q', $q);
+		$this->set('results', $this->paginate('Part', $conditions));
+		//$this->set('results', $this->Part->find('all', array('conditions' => $conditions)));
 	}
 }
 ?>

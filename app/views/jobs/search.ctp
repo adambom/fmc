@@ -1,3 +1,4 @@
+<?php $paginator->options(array('url' =>  array($q))); ?>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('.tbl_select').change(function () {
@@ -21,21 +22,26 @@
 <div id="ajax_result"></div>
 <?php
 echo $form->create("Job", array('action' => 'search'));
-echo $form->input("q", array('label' => 'Search for'));
+echo $form->input("q", array('label' => 'Search for', 'value'=>$q));
 echo $form->end("Search");
 ?>
-
+<p style="float:left;">
+<?php
+echo $paginator->counter(array(
+'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+));
+?></p>
 <table cellpadding="0" cellspacing="0">
 <tr>
-	<th>Id</th>
-	<th>Customer</th>
-	<th>Location</th>
-	<th>Job Type</th>
-	<th>Job Category</th>
-	<th>Job Number</th>
-	<th>Name</th>
-	<th>Date Created</th>
-	<th>Status</th>
+	<th><?php echo $paginator->sort('id');?></th>
+	<th><?php echo $paginator->sort('Job Number', 'jobnumber');?></th>	
+	<th><?php echo $paginator->sort('customer_id');?></th>
+	<th><?php echo $paginator->sort('location_id');?></th>
+	<th><?php echo $paginator->sort('Job Type', 'jobtype_id');?></th>
+	<th><?php echo $paginator->sort('Job Category', 'jobcategory_id');?></th>	
+	<th><?php echo $paginator->sort('name');?></th>
+	<th><?php echo $paginator->sort('date');?></th>
+	<th><?php echo $paginator->sort('status');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 <?php
@@ -51,6 +57,9 @@ foreach ($results as $job):
 			<?php echo $job['Job']['id']; ?>
 		</td>
 		<td>
+			<?php echo $job['Job']['jobnumber']; ?>
+		</td>
+		<td>
 			<?php echo $html->link($job['Company']['name'], array('controller' => 'companies', 'action' => 'view', $job['Company']['id'])); ?>
 		</td>
 		<td>
@@ -63,9 +72,6 @@ foreach ($results as $job):
 			<?php echo $html->link($job['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $job['Jobcategory']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $job['Job']['jobnumber']; ?>
-		</td>
-		<td>
 			<?php echo $job['Job']['name']; ?>
 		</td>
 		<td>
@@ -76,12 +82,17 @@ foreach ($results as $job):
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $job['Job']['id'])); ?>
-			<?php echo $html->link(__('Edit', true), array('action' => 'edit', $job['Job']['id'])); ?>
+			<?php echo $html->link(__('Edit', true), array('action' => 'edit', $job['Job']['id'], $q)); ?>
 			<?php echo $html->link(__('Delete', true), array('action' => 'delete', $job['Job']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $job['Job']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 </table>
+</div>
+<div class="paging">
+	<?php echo $paginator->prev('<< '.__('previous', true), array(), null, array('class'=>'disabled'));?>
+ | 	<?php echo $paginator->numbers();?>
+	<?php echo $paginator->next(__('next', true).' >>', array(), null, array('class' => 'disabled'));?>
 </div>
 <div class="actions">
 	<ul>

@@ -6,6 +6,7 @@
 		echo $form->input('id');
 		echo $form->input('name');
 		echo $form->input('Employee');
+		echo $form->input('q', array('type'=>'hidden', 'value'=>$q));
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

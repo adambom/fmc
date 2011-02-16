@@ -1,3 +1,4 @@
+<?php $paginator->options(array('url' => $this->passedArgs)); ?>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('.tbl_select').change(function () {
@@ -26,20 +27,30 @@ echo $form->input("q", array('label' => 'Search for'));
 echo $form->end("Search");
 ?>
 </div>
-<p>
+<p style="float:left;">
 <?php
 echo $paginator->counter(array(
 'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
 ));
 ?></p>
+<ul class="sort_links">
+	<li>View Jobs by Status: </li>
+	<li><?php echo $html->link('All Jobs', array('controller'=>'jobs', 'action'=>'index')); ?></li>
+	<li><?php echo $html->link('Open', array('controller'=>'jobs', 'action'=>'view_open')); ?></li>
+	<li><?php echo $html->link('Closed', array('controller'=>'jobs', 'action'=>'view_closed')); ?></li>
+	<li><?php echo $html->link('New', array('controller'=>'jobs', 'action'=>'view_new')); ?></li>
+	<li><?php echo $html->link('In Progress', array('controller'=>'jobs', 'action'=>'view_progress')); ?></li>
+	<li><?php echo $html->link('Billed', array('controller'=>'jobs', 'action'=>'view_billed')); ?></li>
+</ul>
+
 <table cellpadding="0" cellspacing="0">
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
+	<th><?php echo $paginator->sort('Job Number', 'jobnumber');?></th>	
 	<th><?php echo $paginator->sort('customer_id');?></th>
 	<th><?php echo $paginator->sort('location_id');?></th>
-	<th><?php echo $paginator->sort('jobtype_id');?></th>
-	<th><?php echo $paginator->sort('jobcategory_id');?></th>
-	<th><?php echo $paginator->sort('jobnumber');?></th>
+	<th><?php echo $paginator->sort('Job Type', 'jobtype_id');?></th>
+	<th><?php echo $paginator->sort('Job Category', 'jobcategory_id');?></th>	
 	<th><?php echo $paginator->sort('name');?></th>
 	<th><?php echo $paginator->sort('date');?></th>
 	<th><?php echo $paginator->sort('status');?></th>
@@ -58,6 +69,9 @@ foreach ($jobs as $job):
 			<?php echo $job['Job']['id']; ?>
 		</td>
 		<td>
+			<?php echo $job['Job']['jobnumber']; ?>
+		</td>
+		<td>
 			<?php echo $html->link($job['Company']['name'], array('controller' => 'companies', 'action' => 'view', $job['Company']['id'])); ?>
 		</td>
 		<td>
@@ -68,10 +82,7 @@ foreach ($jobs as $job):
 		</td>
 		<td>
 			<?php echo $html->link($job['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $job['Jobcategory']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $job['Job']['jobnumber']; ?>
-		</td>
+		</td>		
 		<td>
 			<?php echo $job['Job']['name']; ?>
 		</td>

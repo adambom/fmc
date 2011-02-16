@@ -1,6 +1,7 @@
 <?php
 class Stage extends AppModel {
 	var $name = 'Stage';
+	var $recursive = 2;
 	var $validate = array(
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),

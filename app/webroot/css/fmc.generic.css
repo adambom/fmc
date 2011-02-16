@@ -542,3 +542,11 @@ div.code-coverage-results span.result-good {
 	color:red;
 	font-size:1.5em;
 }
+.sort_links {
+	float:right;
+}
+.sort_links li {
+	font-size:1.1em;
+	display: inline;
+	list-style-type:none;
+}

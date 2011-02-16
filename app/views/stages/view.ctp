@@ -39,21 +39,12 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Customer Id'); ?></th>
-		<th><?php __('Jobcategory Id'); ?></th>
-		<th><?php __('Stage Id'); ?></th>
+		<th><?php __('Customer'); ?></th>
+		<th><?php __('Job Category'); ?></th>
+		<th><?php __('Stage'); ?></th>
 		<th><?php __('Name'); ?></th>
-		<th><?php __('Description'); ?></th>
-		<th><?php __('Shortdescription'); ?></th>
-		<th><?php __('Owner'); ?></th>
-		<th><?php __('Leadsource'); ?></th>
 		<th><?php __('Amount'); ?></th>
-		<th><?php __('Expamount'); ?></th>
-		<th><?php __('Forecastedclosedate'); ?></th>
-		<th><?php __('Actualclosedate'); ?></th>
-		<th><?php __('Nextstep'); ?></th>
-		<th><?php __('Customprobability'); ?></th>
-		<th><?php __('Createddate'); ?></th>
+		<th><?php __('Forecasted Close Date'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -66,21 +57,12 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $opportunity['id'];?></td>
-			<td><?php echo $opportunity['customer_id'];?></td>
-			<td><?php echo $opportunity['jobcategory_id'];?></td>
-			<td><?php echo $opportunity['stage_id'];?></td>
+			<td><?php if($opportunity['Company']){echo $opportunity['Company']['name'];} ?></td>
+			<td><?php if($opportunity['Jobcategory']){echo $opportunity['Jobcategory']['name'];} ?></td>
+			<td><?php echo $opportunity['Stage']['name'];?></td>
 			<td><?php echo $opportunity['name'];?></td>
-			<td><?php echo $opportunity['description'];?></td>
-			<td><?php echo $opportunity['shortdescription'];?></td>
-			<td><?php echo $opportunity['owner'];?></td>
-			<td><?php echo $opportunity['leadsource'];?></td>
 			<td><?php echo $opportunity['amount'];?></td>
-			<td><?php echo $opportunity['expamount'];?></td>
 			<td><?php echo $opportunity['forecastedclosedate'];?></td>
-			<td><?php echo $opportunity['actualclosedate'];?></td>
-			<td><?php echo $opportunity['nextstep'];?></td>
-			<td><?php echo $opportunity['customprobability'];?></td>
-			<td><?php echo $opportunity['createddate'];?></td>
 			<td class="actions">
 				<?php echo $html->link(__('View', true), array('controller' => 'opportunities', 'action' => 'view', $opportunity['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('controller' => 'opportunities', 'action' => 'edit', $opportunity['id'])); ?>

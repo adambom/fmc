@@ -17,6 +17,7 @@
 		echo $form->input('guidepath');
 		echo $form->input('type');
 		echo $form->input('Productreturn');
+		echo $form->input('q', array('type'=>'hidden', 'value'=>$q));
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

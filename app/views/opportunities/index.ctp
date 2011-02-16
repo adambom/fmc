@@ -85,7 +85,7 @@ foreach ($opportunities as $opportunity):
 			<?php echo $html->link(__('View', true), array('action' => 'view', $opportunity['Opportunity']['id'])); ?>
 			<?php echo $html->link(__('Edit', true), array('action' => 'edit', $opportunity['Opportunity']['id'])); ?>
 			<?php echo $html->link(__('Delete', true), array('action' => 'delete', $opportunity['Opportunity']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $opportunity['Opportunity']['id'])); ?>
-			<?php echo $html->link(__('Convert to Job', true), array('controller'=>'jobs', 'action' => 'convert', $opportunity['Opportunity']['id'], $opportunity['Opportunity']['company_id'], $opportunity['Opportunity']['jobcategory_id'], $opportunity['Opportunity']['name'])); ?>
+			<?php echo $html->link(__('Convert to Job', true), array('controller'=>'opportunities', 'action' => 'close', $opportunity['Opportunity']['id'], $opportunity['Opportunity']['company_id'], $opportunity['Opportunity']['jobcategory_id'], $opportunity['Opportunity']['name'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

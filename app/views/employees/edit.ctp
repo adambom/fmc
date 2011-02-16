@@ -41,6 +41,7 @@
 				<td colspan=3><?php echo $form->input('notes'); ?></td>
 			</tr>
 		</table>
+		<?php echo $form->input('q', array('type'=>'hidden', 'value'=>$q)); ?>
 	<?php
 		/*echo $form->input('id');
 		echo $form->input('fname');

@@ -1,6 +1,7 @@
 <?php
 class Location extends AppModel {
 	var $name = 'Location';
+	var $recursive = 2;
 	var $validate = array(
 		'name' => array(
 			'notempty' => array('rule' => array('notempty')),

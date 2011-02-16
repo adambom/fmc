@@ -6,6 +6,7 @@
 		echo $form->input('id');
 		echo $form->input('company_id', array('label'=>'Customer'));
 		echo $form->input('location_id');
+		echo $form->input('status', array('options'=>$status_options));
 		echo $form->input('jobtype_id');
 		echo $form->input('jobcategory_id');
 		echo $form->input('jobnumber');
@@ -14,10 +15,10 @@
 		echo $form->input('ponumber');
 		echo $form->input('billed');
 		echo $form->input('cost');
-		echo $form->input('status', array('options'=>$status_options));
 		echo $form->input('invoice');
 		echo $form->input('taxable');
 		echo $form->input('comments');
+		echo $form->input('q', array('type'=>'hidden', 'value'=>$q));
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>

@@ -41,7 +41,7 @@ class OpportunitiesController extends AppController {
 		$this->set(compact('companies', 'jobcategories', 'stages', 'vendors'));
 	}
 
-	function edit($id = null) {
+	function edit($id = null, $q = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Opportunity', true));
 			$this->redirect(array('action' => 'index'));
@@ -49,12 +49,21 @@ class OpportunitiesController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Opportunity->save($this->data)) {
 				$this->Session->setFlash(__('The Opportunity has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				if($this->data['Opportunity']['q']) {
+					$this->redirect(array('action' => 'search', $this->data['Opportunity']['q']));
+				} else {
+					$this->redirect(array('action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash(__('The Opportunity could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
+			if($q) {
+				$this->set('q',$q);
+			} else {
+				$this->set('q',null);
+			}
 			$this->data = $this->Opportunity->read(null, $id);
 		}
 		$companies = $this->Opportunity->Company->find('list');
@@ -76,8 +85,10 @@ class OpportunitiesController extends AppController {
 		$this->Session->setFlash(__('Opportunity was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	function search() {
-		$q = $this->data['Opportunity']['q'];
+	function search($q = null) {
+		if(!$q) {
+			$q = $this->data['Opportunity']['q'];
+		}
 		$conditions = array(
 			"OR" => array (
 				"Opportunity.name LIKE" => "%".$q."%",
@@ -85,9 +96,11 @@ class OpportunitiesController extends AppController {
 				"Opportunity.shortdescription LIKE" => "%".$q."%"
 			)
 		);
+		$this->set('q', $q);
 		$stages = $this->Opportunity->Stage->find('list');
 		$this->set('stages', $stages);
-		$this->set('results', $this->Opportunity->find('all', array('conditions' => $conditions)));
+		$this->set('results', $this->paginate('Opportunity', $conditions));
+		//$this->set('results', $this->Opportunity->find('all', array('conditions' => $conditions)));
 	}
 	function change_stage($id = null, $stage_id) {
 		if (!$id) {
@@ -103,6 +116,22 @@ class OpportunitiesController extends AppController {
 			}
 		}
 		
+	}
+	function close($id = null, $company_id = null, $jobcategory_id = null, $name = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid id for Opportunity', true));
+			$this->redirect(array('action'=>'index'));
+		} else {
+			$this->Opportunity->read('stage_id', $id);
+			$this->Opportunity->set('stage_id', 9);
+			if($this->Opportunity->save()) {
+				$this->Session->setFlash(__('Opportunity stage set to "Closed Won". Edit details for new job below:', true));
+				$this->redirect(array('controller'=>'jobs', 'action'=>'convert', $id, $company_id, $jobcategory_id, $name));
+			} else {
+				$this->Session->setFlash(__('There was an error saving this opportunity. Opportunity not closed.', true));
+				$this->redirect(array('action'=>'index'));
+			}
+		}
 	}
 }
 ?>

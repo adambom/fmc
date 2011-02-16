@@ -106,6 +106,7 @@
 
 		</div>
 		<div id="footer">
+		<?php echo $this->element('sql_dump'); ?>
 			<?php echo $html->link(
 					$html->image('cake.power.gif', array('alt'=> __("CakePHP: the rapid development php framework", true), 'border'=>"0")),
 					'http://www.cakephp.org/',

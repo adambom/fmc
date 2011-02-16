@@ -64,7 +64,11 @@ foreach ($employees as $employee):
 			<?php echo $employee['Employee']['cell']; ?>
 		</td>
 		<td>
-			<?php echo $employee['Employee']['email']; ?>
+			<?php 
+				if($employee['Employee']['email']) {
+					echo "<a href='mailto:".$employee['Employee']['email']."'>".$employee['Employee']['email']."</a>"; 
+				}
+			?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $employee['Employee']['id'])); ?>

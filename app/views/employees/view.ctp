@@ -83,7 +83,11 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $employee['Employee']['email']; ?>
+			<?php 
+				if($employee['Employee']['email']) {
+					echo "<a href='mailto:".$employee['Employee']['email']."'>".$employee['Employee']['email']."</a>"; 
+				}
+			?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Url'); ?></dt>

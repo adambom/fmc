@@ -4,13 +4,100 @@ class JobsController extends AppController {
 	var $name = 'Jobs';
 	var $helpers = array('Html', 'Form');
 
-	function index() {
+	function index($status = null) {
 		$this->Job->recursive = 0;
-		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
 		$this->set('status_options', $status_options);
 		$this->set('jobs', $this->paginate());
 	}
-
+	function view_new() {
+		$this->Job->recursive = 0;
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
+		$this->set('status_options', $status_options);
+		$this->set('jobs', $this->paginate(
+			'Job', 
+			array('Job.status =' => 'New')
+		));
+		$this->render('index');
+	}
+	function view_open() {
+		$this->Job->recursive = 0;
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
+		$this->set('status_options', $status_options);
+		$conditions = array(
+			'Job.status <>' => 'Closed',
+			' Job.status <>' => ''
+		);
+		
+		$this->set('jobs', $this->paginate('Job', $conditions));
+		$this->render('index');
+	}
+	function view_progress() {
+		$this->Job->recursive = 0;
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
+		$this->set('status_options', $status_options);
+		$this->set('jobs', $this->paginate(
+			'Job', 
+			array('Job.status =' => 'In Progress')
+		));	
+		$this->render('index');
+	}
+	function view_billed() {
+		$this->Job->recursive = 0;
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
+		$this->set('status_options', $status_options);
+		$this->set('jobs', $this->paginate(
+			'Job', 
+			array('Job.status =' => 'Billed')
+		));	
+		$this->render('index');
+	}
+	function view_closed() {
+		$this->Job->recursive = 0;
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
+		$this->set('status_options', $status_options);
+		$this->set('jobs', $this->paginate(
+			'Job', 
+			array('Job.status =' => 'closed')
+		));
+		$this->render('index');
+	}
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Job', true));
@@ -38,7 +125,7 @@ class JobsController extends AppController {
 		$this->set(compact('companies', 'locations', 'jobtypes', 'jobcategories'));
 	}
 
-	function edit($id = null) {
+	function edit($id = null, $q = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Job', true));
 			$this->redirect(array('action' => 'index'));
@@ -46,12 +133,21 @@ class JobsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Job->save($this->data)) {
 				$this->Session->setFlash(__('The Job has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				if($this->data['Job']['q']) {
+					$this->redirect(array('action' => 'search', $this->data['Job']['q']));
+				} else {
+					$this->redirect(array('action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash(__('The Job could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
+			if($q) {
+				$this->set('q',$q);
+			} else {
+				$this->set('q', $q);
+			}
 			$this->data = $this->Job->read(null, $id);
 		}
 		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
@@ -75,8 +171,10 @@ class JobsController extends AppController {
 		$this->Session->setFlash(__('Job was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	function search() {
-		$q = $this->data['Job']['q'];
+	function search($q = null) {
+		if (!$q) {
+			$q = $this->data['Job']['q'];
+		}
 		$conditions = array(
 			"OR" => array (
 				"Job.name LIKE" => "%".$q."%",
@@ -87,8 +185,11 @@ class JobsController extends AppController {
 			)
 		);
 		$status_options = array('New' => 'New', 'Open' => 'Open', 'In Progress' => 'In Progress', 'Billed' => 'Billed', 'Closed' => 'Closed');
+		$this->set('q', $q);
 		$this->set('status_options', $status_options);
-		$this->set('results', $this->Job->find('all', array('conditions' => $conditions)));
+		$this->set('results', $this->paginate('Job', $conditions));
+		//$this->render('index');
+		//$this->set('results', $this->Job->find('all', array('conditions' => $conditions)));
 	}
 	function convert($opportunity_id = null, $company_id = null, $jobcategory_id = null, $name = null) {
 		if (!$opportunity_id && !empty($this->data)) {
@@ -113,6 +214,13 @@ class JobsController extends AppController {
 		if($name) {
 			$this->set('name', $name);
 		}
+		$status_options = array(
+			'New' => 'New', 
+			'Open' => 'Open', 
+			'In Progress' => 'In Progress', 
+			'Billed' => 'Billed', 
+			'Closed' => 'Closed'
+		);
 		$this->set('status_options', $status_options);
 		$companies = $this->Job->Company->find('list');
 		$locations = $this->Job->Location->find('list');
