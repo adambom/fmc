@@ -36,6 +36,7 @@
 	<fieldset>
  		<legend><?php __('Add Productreturn');?></legend>
 	<?php
+		echo $this->Form->submit();
 		echo $form->input('vendor_id');
 		echo $form->input('fmc_return_no');
 		echo $form->input('date');
