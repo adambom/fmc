@@ -49,8 +49,10 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			$('input.search').autocomplete({
-				source: '/autocomplete/'+$(this).val()
+			$('input.search').change(function() {
+				$.get('/autocomplete/'+$(this).val(), function(results) {
+					alert(results);	
+				});
 			});
 		});
 	</script>
