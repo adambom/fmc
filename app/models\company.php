@@ -24,9 +24,9 @@ class Company extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Manufacturer' => array(
-			'className' => 'Manufacturer',
-			'foreignKey' => 'company_id',
+		'PartManufacturered' => array(
+			'className' => 'Part',
+			'foreignKey' => 'manufacturer_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -37,9 +37,9 @@ class Company extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Vendor' => array(
-			'className' => 'Vendor',
-			'foreignKey' => 'company_id',
+		'PartVended' => array(
+			'className' => 'Part',
+			'foreignKey' => 'vendor_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -59,6 +59,21 @@ class Company extends AppModel {
 			'joinTable' => 'companies_employees',
 			'foreignKey' => 'company_id',
 			'associationForeignKey' => 'employee_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
+		'VendorOpportunity' => array(
+			'className' => 'Opportunity',
+			'joinTable' => 'opportunities_vendors',
+			'foreignKey' => 'vendor_id',
+			'associationForeignKey' => 'opportunity_id',
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',

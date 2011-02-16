@@ -78,7 +78,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $job['id'];?></td>
-			<td><?php if($job['Company']['name']){echo $job['Company']['name'];} ?></td>
+			<td><?php if($job['Company']){echo $job['Company']['name'];} ?></td>
 			<td><?php if($job['Location']['name']){echo $job['Location']['name'];} ?></td>
 			<td><?php if($job['Jobtype']['name']){echo $job['Jobtype']['name'];} ?></td>
 			<td><?php if($job['Jobcategory']){echo $job['Jobcategory']['name'];} ?></td>

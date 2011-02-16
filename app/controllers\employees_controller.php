@@ -33,7 +33,7 @@ class EmployeesController extends AppController {
 		$this->set(compact('companies'));
 	}
 
-	function edit($id = null) {
+	function edit($id = null, $q = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Employee', true));
 			$this->redirect(array('action' => 'index'));
@@ -41,12 +41,22 @@ class EmployeesController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Employee->save($this->data)) {
 				$this->Session->setFlash(__('The Employee has been saved', true));
+				if($this->data['Employee']['q']) {
+					$this->redirect(array('action' => 'search', $this->data['Employee']['q']));
+				} else {
+					$this->redirect(array('action' => 'index'));
+				}
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The Employee could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
+			if($q) {
+				$this->set('q', $q);
+			} else {
+				$this->set('q', null);
+			}
 			$this->data = $this->Employee->read(null, $id);
 		}
 		$companies = $this->Employee->Company->find('list');
@@ -65,16 +75,20 @@ class EmployeesController extends AppController {
 		$this->Session->setFlash(__('Employee was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	function search() {
-		$q = $this->data['Employee']['q'];
+	function search($q = null) {
+		if(!$q) {
+			$q = $this->data['Employee']['q'];
+		}
 		$conditions = array(
 			"OR" => array (
 				"Employee.fname LIKE" => "%".$q."%",
 				"Employee.lname LIKE" => "%".$q."%",
 				"Employee.email LIKE" => "%".$q."%",
 			)
-		)
-		$this->set('results', $this->Employee->find('all', array('conditions' => $conditions)));
+		);
+		$this->set('q', $q);
+		$this->set('results', $this->paginate('Employee', $conditions));
+		//$this->set('results', $this->Employee->find('all', array('conditions' => $conditions)));
 	}
 }
 ?>

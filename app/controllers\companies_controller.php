@@ -2,12 +2,12 @@
 class CompaniesController extends AppController {
 
 	var $name = 'Companies';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form','Ajax','Javascript');
 	var $paginate = array(
 		'order' => array(
 			'Company.name' => 'asc'
 		)
-	)
+	);
 
 	function index() {
 		$this->Company->recursive = 0;
@@ -36,7 +36,7 @@ class CompaniesController extends AppController {
 		$this->set(compact('employees'));
 	}
 
-	function edit($id = null) {
+	function edit($id = null, $q = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Company', true));
 			$this->redirect(array('action' => 'index'));
@@ -44,12 +44,21 @@ class CompaniesController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Company->save($this->data)) {
 				$this->Session->setFlash(__('The Company has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				if($this->data['Company']['q']) {
+					$this->redirect(array('action' => 'search', $this->data['Company']['q']));
+				} else {
+					$this->redirect(array('action' => 'index'));
+				}
 			} else {
 				$this->Session->setFlash(__('The Company could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
+			if($q) {
+				$this->set('q',$q);
+			} else {
+				$this->set('q',null);
+			}
 			$this->data = $this->Company->read(null, $id);
 		}
 		$employees = $this->Company->Employee->find('list');
@@ -69,10 +78,21 @@ class CompaniesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
-	function search() {
-		$q = $this->data['Company']['q'];
+	function search($q = null) {
+		if(!$q) {
+			$q = $this->data['Company']['q'];
+		}
+		$this->set('q', $q);
 		$conditions = array("Company.name LIKE" => "%".$q."%");
-		$this->set('results', $this->Company->find('all', array('conditions' => $conditions)));
+		$this->set('results', $this->paginate('Company', $conditions));
+		//$this->set('results', $this->Company->find('all', array('conditions' => $conditions)));
+	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array("Company.name LIKE" => "%".$q."%");
+			$this->set('results', $this->Company->find('all', array('conditions'=>$conditions)));
+		}
 	}
 }
 ?>
