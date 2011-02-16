@@ -49,8 +49,8 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			$('#CompanyQ').change(function() {
-				alert($(this).val());
+			$('#CompanyQ').click(function() {
+				alert('hello');
 				/*$.get('/autocomplete/'+$(this).val(), function(results) {
 					alert(results);	
 				});*/
