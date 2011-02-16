@@ -1,5 +1,5 @@
 <?php
-/* Productreturns Test cases generated on: 2011-02-16 09:02:15 : 1297849155*/
+/* Productreturns Test cases generated on: 2011-02-16 09:02:04 : 1297849684*/
 App::import('Controller', 'Productreturns');
 
 class TestProductreturnsController extends ProductreturnsController {
@@ -21,6 +21,26 @@ class ProductreturnsControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Productreturns);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
 	}
 
 }

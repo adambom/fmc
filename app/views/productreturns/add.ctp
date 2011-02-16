@@ -16,6 +16,7 @@
 		echo $form->input('product_returned');
 		echo $form->input('closed');
 		echo $form->input('comments');
+		echo $form->input('Part');
 	?>
 	</fieldset>
 <?php echo $form->end('Submit');?>
@@ -27,5 +28,7 @@
 		<li><?php echo $html->link(__('New Vendor', true), array('controller' => 'vendors', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Jobs', true), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Job', true), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('List Parts', true), array('controller' => 'parts', 'action' => 'index')); ?> </li>
+		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

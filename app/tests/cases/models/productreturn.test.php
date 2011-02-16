@@ -1,5 +1,5 @@
 <?php
-/* Productreturn Test cases generated on: 2011-02-16 09:02:41 : 1297849241*/
+/* Productreturn Test cases generated on: 2011-02-16 09:02:03 : 1297849563*/
 App::import('Model', 'Productreturn');
 
 class ProductreturnTestCase extends CakeTestCase {
