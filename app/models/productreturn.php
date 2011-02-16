@@ -31,7 +31,7 @@ class Productreturn extends AppModel {
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => array('partnumber'=>'asc'),
+			'order' => '',
 			'limit' => '',
 			'offset' => '',
 			'finderQuery' => '',
