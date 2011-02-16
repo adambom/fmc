@@ -2,7 +2,7 @@
 class PartsController extends AppController {
 
 	var $name = 'Parts';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form', 'Ajax');
 
 	function index() {
 		$this->Part->recursive = 0;
@@ -96,6 +96,12 @@ class PartsController extends AppController {
 		$this->set('q', $q);
 		$this->set('results', $this->paginate('Part', $conditions));
 		//$this->set('results', $this->Part->find('all', array('conditions' => $conditions)));
+	}
+	function getDetails($id = null) {
+		$this->layout = 'ajax';
+		if($id) {
+			$this->set('part', $this->Part->read(array('Part.deviceid', 'Part.description'), $id));
+		}
 	}
 }
 ?>

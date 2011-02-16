@@ -1,0 +1,1 @@
+<?php if($part){echo json_encode($part);} ?>
