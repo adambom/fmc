@@ -556,7 +556,7 @@ form.search {
 }
 form.search input.search{
 	float:left;
-	width:300px;
+	width:395px;
 }
 form.search div.submit{
 	margin:0px;
@@ -577,4 +577,49 @@ p.result_summary {
 #partInfo label {
 	font-weight:bold;
 	color:#000;
+}
+table.searchHolder {
+	border:none;
+	width: 500px;
+	margin-bottom:0px;
+}
+table.searchHolder td {
+	border:none;
+	padding:0px;
+	vertical-align:middle;
+}
+table.searchHolder div.submit {
+	padding: 0px;
+}
+#results_holder {
+	padding:0px;
+	position:absolute;
+	z-index:10;
+	background-color:#FFF;
+	width:398px;
+	padding:0;
+	border:solid #023866 3px;
+	display:none;
+}
+#results_holder ul {
+	margin:0;
+	padding:0;
+}
+#results_holder ul li {
+	list-style-type:none;
+	margin:0;
+	padding:10px 10px 10px 10px;
+	border-top: solid 1px #BBB;
+}
+#results_holder ul li.first {
+	border:none;
+	padding-top:10px;
+}
+#results_holder ul li:hover {
+	background-color:#007D71;
+	color:white;
+}
+#results_holder ul li a {
+	background-color:transparent;
+	color:inherit;
 }

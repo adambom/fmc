@@ -49,13 +49,18 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			/*$('#CompanyQ').keyup(function() {
+			$('#CompanyQ').keyup(function() {
+				$('#results_holder').hide();
 				if($(this).val().length > 2) {
 					$.get('companies/autocomplete/'+$(this).val(), function(results) {
-						alert(results);	
+						$('#results_holder').html(results);
+						$('#results_holder').show();
 					});
-				}
-			});*/
+				} 
+			});
+			$('*:#results_holder').blur(function() {
+				$('#results_holder').hide();
+			});
 		});
 	</script>
 </head>

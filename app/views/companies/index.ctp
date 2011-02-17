@@ -7,12 +7,37 @@
 		<li><?php echo $html->link(__('New Employee', true), array('controller' => 'employees', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<span><form method="post" class="search" action="/fmc/companies/search">
-	<input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ">
-	<div class="submit">
-    	<input type="submit" value="Search">
-    </div>
-</form></span>
+<span>
+<form method="post" class="search" action="/fmc/companies/search">
+	<table class="searchHolder">
+		<tr>
+			<td><input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ" autocomplete="off" autocorrect="off"></td>
+			<td>
+				<div class="submit">
+					<input type="submit" value="Search">
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="results_holder"><ul>
+
+      <li class="first"><a href="companies/view/2">Ademco - Honeywell</a></li>
+
+      <li><a href="companies/view/684">Concord Academy</a></li>
+
+      <li><a href="companies/view/752">Innovation Academy Charter School</a></li>
+
+      <li><a href="companies/view/688">Massachusetts Maritime Academy</a></li>
+
+      <li><a href="companies/view/1130">Notre Dame Academy</a></li>
+
+      <li><a href="companies/view/328">Stadelman Electric</a></li>
+
+      <li><a href="companies/view/396">Zade Co.</a></li>
+
+ </ul> </div>
+</form>
+</span>
 
 <p class="result_summary">
 <?php

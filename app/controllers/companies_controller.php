@@ -91,6 +91,7 @@ class CompaniesController extends AppController {
 		$this->layout = 'ajax';
 		if(strlen($q)>2) {
 			$conditions = array("Company.name LIKE" => "%".$q."%");
+			$this->set('q', $q);
 			$this->set('results', $this->Company->find('all', array('conditions'=>$conditions)));
 		}
 	}
