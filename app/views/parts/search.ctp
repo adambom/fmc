@@ -14,11 +14,19 @@
 		<li><?php echo $html->link(__('New Product Return', true), array('controller' => 'productreturns', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<?php
-echo $form->create("Part", array('action' => 'search'));
-echo $form->input("q", array('label' => 'Search for', 'value'=>$q));
-echo $form->end("Search");
-?>
+<form method="post" class="search" action="/fmc/parts/search">
+	<table class="searchHolder">
+		<tr>
+			<td><input name="data[Part][q]" type="text" class="search" rel="parts" value="" id="PartQ" autocomplete="off" autocorrect="off"></td>
+			<td>
+				<div class="submit">
+					<input type="submit" value="Search">
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="results_holder"></div>
+</form>
 <p>
 <?php
 	echo $paginator->counter(array(

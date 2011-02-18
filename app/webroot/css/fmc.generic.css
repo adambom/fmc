@@ -619,6 +619,15 @@ table.searchHolder div.submit {
 	background-color:#007D71;
 	color:white;
 }
+a.result_detail {
+	text-decoration:none;
+	font-size:0.8em;
+	font-style:italic;
+	font-weight:100;
+}
+a.result_detail:hover {
+	text-decoration:underline;
+}
 #results_holder ul li a {
 	background-color:transparent;
 	color:inherit;

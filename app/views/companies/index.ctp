@@ -11,7 +11,7 @@
 <form method="post" class="search" action="/fmc/companies/search">
 	<table class="searchHolder">
 		<tr>
-			<td><input name="data[Company][q]" type="text" class="search" value="" id="CompanyQ" autocomplete="off" autocorrect="off"></td>
+			<td><input name="data[Company][q]" type="text" class="search" rel="companies" value="" id="CompanyQ" autocomplete="off" autocorrect="off"></td>
 			<td>
 				<div class="submit">
 					<input type="submit" value="Search">
@@ -19,23 +19,7 @@
 			</td>
 		</tr>
 	</table>
-	<div id="results_holder"><ul>
-
-      <li class="first"><a href="companies/view/2">Ademco - Honeywell</a></li>
-
-      <li><a href="companies/view/684">Concord Academy</a></li>
-
-      <li><a href="companies/view/752">Innovation Academy Charter School</a></li>
-
-      <li><a href="companies/view/688">Massachusetts Maritime Academy</a></li>
-
-      <li><a href="companies/view/1130">Notre Dame Academy</a></li>
-
-      <li><a href="companies/view/328">Stadelman Electric</a></li>
-
-      <li><a href="companies/view/396">Zade Co.</a></li>
-
- </ul> </div>
+	<div id="results_holder"></div>
 </form>
 </span>
 

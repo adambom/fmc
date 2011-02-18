@@ -33,13 +33,19 @@
 	</ul>
 </div>
 <div id="ajax_result"></div>
-<div id="page_search">
-<?php
-echo $form->create("Job", array('action' => 'search'));
-echo $form->input("q", array('label' => 'Search for'));
-echo $form->end("Search");
-?>
-</div>
+<form method="post" class="search" action="/fmc/jobs/search">
+	<table class="searchHolder">
+		<tr>
+			<td><input name="data[Job][q]" type="text" class="search" rel="jobs" value="" id="JobQ" autocomplete="off" autocorrect="off"></td>
+			<td>
+				<div class="submit">
+					<input type="submit" value="Search">
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="results_holder"></div>
+</form>
 <p style="float:left;">
 <?php
 echo $paginator->counter(array(

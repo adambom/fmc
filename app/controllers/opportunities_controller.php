@@ -5,7 +5,7 @@ class OpportunitiesController extends AppController {
 	var $helpers = array('Html', 'Form');
 	var $paginate = array(
 		'order' => array(
-			'Opportunity.createddate' => 'desc'
+			'Opportunity.id' => 'desc'
 		)
 	);
 
@@ -92,6 +92,7 @@ class OpportunitiesController extends AppController {
 		$conditions = array(
 			"OR" => array (
 				"Opportunity.name LIKE" => "%".$q."%",
+				"Company.name LIKE" => "%".$q."%",
 				"Opportunity.description LIKE" => "%".$q."%",
 				"Opportunity.shortdescription LIKE" => "%".$q."%"
 			)
@@ -131,6 +132,21 @@ class OpportunitiesController extends AppController {
 				$this->Session->setFlash(__('There was an error saving this opportunity. Opportunity not closed.', true));
 				$this->redirect(array('action'=>'index'));
 			}
+		}
+	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Opportunity.name LIKE" => "%".$q."%",
+					"Company.name LIKE" => "%".$q."%",
+					"Opportunity.description LIKE" => "%".$q."%",
+					"Opportunity.shortdescription LIKE" => "%".$q."%"
+				)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Opportunity->find('all', array('conditions'=>$conditions)));
 		}
 	}
 }

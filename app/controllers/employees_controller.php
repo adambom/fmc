@@ -90,5 +90,19 @@ class EmployeesController extends AppController {
 		$this->set('results', $this->paginate('Employee', $conditions));
 		//$this->set('results', $this->Employee->find('all', array('conditions' => $conditions)));
 	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Employee.fname LIKE" => "%".$q."%",
+					"Employee.lname LIKE" => "%".$q."%",
+					"Employee.email LIKE" => "%".$q."%",
+					)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Employee->find('all', array('conditions'=>$conditions)));
+		}
+	}
 }
 ?>

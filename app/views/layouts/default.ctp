@@ -49,16 +49,17 @@
 				$("#q").attr("name", "data[" + $("#search_type option:selected").attr("id") + "][q]");
 				$("#SearchForm").attr("action", "/fmc/"+$(this).val()+"/search");
 			});
-			$('#CompanyQ').keyup(function() {
+			$('.search').keyup(function() {
+				var modelName = $(this).attr("rel");
 				$('#results_holder').hide();
 				if($(this).val().length > 2) {
-					$.get('companies/autocomplete/'+$(this).val(), function(results) {
+					$.get('/fmc/'+modelName+'/autocomplete/'+$(this).val(), function(results) {
 						$('#results_holder').html(results);
 						$('#results_holder').show();
 					});
 				} 
 			});
-			$('*:#results_holder').blur(function() {
+			$(':not(#results_holder, #results_holder *, .search)').click(function() {
 				$('#results_holder').hide();
 			});
 		});

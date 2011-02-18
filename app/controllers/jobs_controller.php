@@ -259,5 +259,21 @@ class JobsController extends AppController {
 		}
 		
 	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Job.name LIKE" => "%".$q."%",
+					"Job.jobnumber LIKE" => "%".$q."%",
+					"Company.name LIKE" => "%".$q."%",
+					"Location.name LIKE" => "%".$q."%",
+					"Jobtype.name LIKE" => "%".$q."%",
+				)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Job->find('all', array('conditions'=>$conditions)));
+		}
+	}
 }
 ?>

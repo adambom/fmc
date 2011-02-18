@@ -8,11 +8,19 @@
 		<li><?php echo $html->link(__('New Company', true), array('controller' => 'companies', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
-<?php
-	echo $form->create("Employee", array('action' => 'search'));
-	echo $form->input("q", array('label' => 'Search for', 'value'=>$q));
-	echo $form->end("Search");
-?>
+<form method="post" class="search" action="/fmc/employees/search">
+	<table class="searchHolder">
+		<tr>
+			<td><input name="data[Employee][q]" type="text" class="search" rel="employees" value="" id="EmployeeQ" autocomplete="off" autocorrect="off"></td>
+			<td>
+				<div class="submit">
+					<input type="submit" value="Search">
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="results_holder"></div>
+</form>
 <p>
 <?php
 	echo $paginator->counter(array(

@@ -103,5 +103,21 @@ class PartsController extends AppController {
 			$this->set('part', $this->Part->read(array('Part.deviceid', 'Part.description'), $id));
 		}
 	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Part.description LIKE" => "%".$q."%",
+					"Part.partnumber LIKE" => "%".$q."%",
+					"Part.deviceid LIKE" => "%".$q."%",
+					"Vendor.name LIKE" => "%".$q."%",
+					"Manufacturer.name LIKE" => "%".$q."%"
+				)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Part->find('all', array('conditions'=>$conditions)));
+		}
+	}
 }
 ?>

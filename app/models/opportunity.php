@@ -1,6 +1,7 @@
 <?php
 class Opportunity extends AppModel {
 	var $name = 'Opportunity';
+	var $order = array("Opportunity.id" => 'DESC');
 	var $actAs = array ('Searchable');
 	var $validate = array(
 		'customer_id' => array(
