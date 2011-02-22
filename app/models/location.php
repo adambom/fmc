@@ -34,7 +34,7 @@ class Location extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => array('case when Job.jobnumber>"J5" then 1900 else 2000 end desc, Job.jobnumber ' => 'desc', 'Job.status'=>'asc', 'Job.date' => 'desc'),
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
