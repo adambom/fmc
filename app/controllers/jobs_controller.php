@@ -275,5 +275,14 @@ class JobsController extends AppController {
 			$this->set('results', $this->Job->find('all', array('conditions'=>$conditions)));
 		}
 	}
+	
+	function openJobs($company_id = null) {
+		$this->Layout = 'report';
+		$this->Job->recursive = 0;
+		if($company_id) {
+			$conditions = array('Job.company_id' => $company_id);
+			$this->set('jobs', $this->find('all', array($conditions)));
+		}
+	}
 }
 ?>

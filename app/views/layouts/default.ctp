@@ -34,15 +34,19 @@
 	<?php
 		echo $html->meta('icon');
 
-		echo $html->css(array('fmc.generic', 'navigation'));
+		echo $html->css(array('fmc.generic', 'navigation', 'colorbox'));
 
 		echo $scripts_for_layout;
 		
 		echo $javascript->link('navigation');
+		
 
 	?>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<?php echo $javascript->link('jquery.colorbox-min'); ?>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#search_type").change(function() {				
@@ -62,6 +66,17 @@
 			$(':not(#results_holder, #results_holder *, .search)').click(function() {
 				$('#results_holder').hide();
 			});
+			$('input.predefined').focus(function() {
+				$(this).val("");
+			});
+			$('input.predefined').blur(function() {
+				$(this).val($(this).attr('default'));
+			});
+			$('input.predefined').keydown(function() {
+				$(this).removeClass('predefined');
+				$(this).unbind('focus').unbind('blur');
+			});
+			$('a#search').colorbox({href:"/fmc/"+$(this).attr("modelName")+"/lookup/", width:"50%", height:"75%"});
 		});
 	</script>
 </head>
