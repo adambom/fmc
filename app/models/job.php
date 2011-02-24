@@ -1,6 +1,7 @@
 <?php
 class Job extends AppModel {
 	var $name = 'Job';
+	var $displayField = 'jobnumber';
 	var $actAs = array ('Searchable');
 	var $order = array('case when Job.jobnumber>"J5" then 1900 else 2000 end desc, Job.jobnumber ' => 'desc', 'Job.status'=>'asc', 'Job.date' => 'desc');
 	var $validate = array(
