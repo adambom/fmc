@@ -632,3 +632,6 @@ a.result_detail:hover {
 	background-color:transparent;
 	color:inherit;
 }
+input.predefined {
+	color:#999;
+}
