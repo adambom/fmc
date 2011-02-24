@@ -1,5 +1,5 @@
 <div class="productreturns index">
-<h2><?php __('Productreturns');?></h2>
+<h2><?php __('Product Returns');?></h2>
 <div class="actions">
 	<ul>
 		<li><?php echo $html->link(__('New Productreturn', true), array('action' => 'add')); ?></li>
@@ -11,6 +11,19 @@
 		<li><?php echo $html->link(__('New Part', true), array('controller' => 'parts', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<form method="post" class="search" action="/fmc/productreturns/search">
+	<table class="searchHolder">
+		<tr>
+			<td><input name="data[Productreturn][q]" type="text" class="search" rel="productreturns" value="" id="ProductreturnQ" autocomplete="off" autocorrect="off"></td>
+			<td>
+				<div class="submit">
+					<input type="submit" value="Search">
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id="results_holder"></div>
+</form>
 <p>
 <?php
 echo $paginator->counter(array(
