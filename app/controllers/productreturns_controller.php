@@ -67,5 +67,35 @@ class ProductreturnsController extends AppController {
 		$this->Session->setFlash(__('Productreturn was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	function search($q = null) {
+		if(!$q) {
+			$q = $this->data['Productreturn']['q'];
+		}
+		$this->set('q', $q);
+		$conditions = array(
+			"OR" => array (
+				"Productreturn.fmc_return_no LIKE" => "%".$q."%",
+				"Job.name LIKE" => "%".$q."%",
+				"Vendor.name LIKE" => "%".$q."%",
+				"Productreturn.comments LIKE" => "%".$q."%"
+			)
+		);
+		$this->set('results', $this->paginate('Productreturn', $conditions));
+	}
+	function autoComplete($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Productreturn.fmc_return_no LIKE" => "%".$q."%",
+					"Job.name LIKE" => "%".$q."%",
+					"Vendor.name LIKE" => "%".$q."%",
+					"Productreturn.comments LIKE" => "%".$q."%"
+				)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Productreturn->find('all', array('conditions'=>$conditions)));
+		}
+	}
 }
 ?>
