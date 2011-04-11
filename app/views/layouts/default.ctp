@@ -110,19 +110,19 @@
 				<li><?php echo $html->link('Opportunities', array('controller'=>'opportunities', 'action'=>'index')); ?></li>
 				<li><?php echo $html->link('Parts', array('controller'=>'parts', 'action'=>'index')); ?></li>
 				<li><?php echo $html->link('Product Returns', array('controller'=>'productreturns', 'action'=>'index')); ?></li>
+				<li><a href="#" rel="dropmenu1">Reports</a></li>
 			</ul>
-			<!--Companies drop down menu -->                                                   
-			<!--div id="dropmenu1" class="dropmenudiv_a">
+			<!--Reports drop down menu -->                                                   
+			<div id="dropmenu1" class="dropmenudiv_a">
 				<?php
-					/*echo $html->link('All Companies', array('controller'=>'companies'));
-					echo $html->link('Customers', array('controller'=>'customers'));
-					echo $html->link('Vendors', array('controller'=>'vendors'));
-					echo $html->link('Manufacturers', array('controller'=>'manufacturers'));*/
+					echo $html->link('Works in Progress', array('controller'=>'jobs', 'action' => 'open_jobs'));
+					echo $html->link('Open Opportunities', array('controller'=>'opportunities', 'action' => 'open_opportunities'));
+					echo $html->link('Open Product Returns', array('controller'=>'productreturns', 'action' => 'open_returns'));
 				?>
-			</div-->
+			</div>
 
 			<script type="text/javascript">
-				//tabdropdown.init("navigation", 3)
+				tabdropdown.init("navigation", 3)
 			</script>
 		</div>
 		<div id="content">

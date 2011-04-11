@@ -30,6 +30,7 @@
 		<li><?php echo $html->link(__('New Job Type', true), array('controller' => 'jobtypes', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Job Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('Works in Progress Report', true), array('controller' => 'jobs', 'action' => 'open_jobs')); ?> </li>
 	</ul>
 </div>
 <div id="ajax_result"></div>
@@ -139,5 +140,6 @@ foreach ($jobs as $job):
 		<li><?php echo $html->link(__('New Job Type', true), array('controller' => 'jobtypes', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Job Categories', true), array('controller' => 'jobcategories', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('Works in Progress Report', true), array('controller' => 'jobs', 'action' => 'open_jobs')); ?> </li>
 	</ul>
 </div>

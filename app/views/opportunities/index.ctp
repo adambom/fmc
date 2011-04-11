@@ -27,6 +27,7 @@
 		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('Open Opportunities Report', true), array('controller' => 'opportunities', 'action' => 'open_opportunities')); ?> </li>
 	</ul>
 </div>
 <div id="ajax_result"></div>
@@ -132,5 +133,6 @@ foreach ($opportunities as $opportunity):
 		<li><?php echo $html->link(__('New Job Category', true), array('controller' => 'jobcategories', 'action' => 'add')); ?> </li>
 		<li><?php echo $html->link(__('List Stages', true), array('controller' => 'stages', 'action' => 'index')); ?> </li>
 		<li><?php echo $html->link(__('New Stage', true), array('controller' => 'stages', 'action' => 'add')); ?> </li>
+		<li><?php echo $html->link(__('Open Opportunities Report', true), array('controller' => 'opportunities', 'action' => 'open_opportunities')); ?> </li>
 	</ul>
 </div>

@@ -171,5 +171,30 @@ class OpportunitiesController extends AppController {
 			$this->set('results', $this->Opportunity->find('all', array('conditions'=>$conditions)));
 		}
 	}
+	function open_opportunities($company_id = null) {
+		$this->layout = 'report';
+		$this->Opportunity->recursive = 0;
+		$this->set('report_title', 'Open Opportunities');
+		if($company_id) {
+			$conditions = array(
+				"NOT" => array("Stage.name" => array("Closed Won", "Abandoned Sales Effort", "Closed Lost")),
+				'Opportunity.company_id' => $company_id
+			);
+			$order = array("Stage.name ASC");
+			$this->set('opportunities', $this->Opportunity->find(
+				'all', 
+				array('conditions' => $conditions, 'order' => $order)
+			));
+		} else {
+			$conditions = array(
+				"NOT" => array("Stage.name" => array("Closed Won", "Abandoned Sales Effort", "Closed Lost"))
+			);
+			$order = array("Stage.name ASC");
+			$this->set('opportunities', $this->Opportunity->find(
+				'all', 
+				array('conditions' => $conditions, 'order' => $order)
+			));
+		}
+	}
 }
 ?>

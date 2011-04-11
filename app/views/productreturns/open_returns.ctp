@@ -33,7 +33,7 @@
 		$("#job").keyup(function(){
 			$('#results_holder').hide();
 			if($(this).val().length > 2) {
-				$.get('/~Adam/fmc/jobs/autocomplete_for_open_returns/'+$(this).val(), function(results) {
+				$.get('/fmc/jobs/autocomplete_for_open_returns/'+$(this).val(), function(results) {
 					$('#results_holder').html(results);
 					$('#results_holder').show();
 				});
