@@ -55,7 +55,7 @@
 				var modelName = $(this).attr("rel");
 				$('#results_holder').hide();
 				if($(this).val().length > 2) {
-					$.get('/~Adam/fmc/'+modelName+'/autocomplete/'+$(this).val(), function(results) {
+					$.get('/fmc/'+modelName+'/autocomplete/'+$(this).val(), function(results) {
 						$('#results_holder').html(results);
 						$('#results_holder').show();
 					});
