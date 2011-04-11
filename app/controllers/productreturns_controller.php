@@ -97,5 +97,26 @@ class ProductreturnsController extends AppController {
 			$this->set('results', $this->Productreturn->find('all', array('conditions'=>$conditions)));
 		}
 	}
+	function open_returns($job_id = null) {
+		$this->layout = 'report';
+		$this->Productreturn->recursive = 1;
+		$this->set('report_title', 'Open Product Returns');
+		if($job_id) {
+			$conditions = array(
+				'Productreturn.closed' => false,
+				'Job.id' => $job_id
+			);
+			$this->set('productreturns', $this->Productreturn->find(
+				'all', 
+				array('conditions' => $conditions)
+			));
+		} else {
+			$conditions = array('Productreturn.closed =' => False);
+			$this->set('productreturns', $this->Productreturn->find(
+				'all', 
+				array('conditions' => $conditions)
+			));
+		}
+	}
 }
 ?>

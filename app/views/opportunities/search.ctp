@@ -50,6 +50,12 @@
 	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
 	));
 ?></p>
+<ul class="sort_links">
+	<li>View Opportunities by Status: </li>
+	<li><?php echo $html->link('All Opportunities', array('controller'=>'opportunities', 'action'=>'index')); ?></li>
+	<li><?php echo $html->link('Open', array('controller'=>'opportunities', 'action'=>'view_open')); ?></li>
+	<li><?php echo $html->link('Closed', array('controller'=>'opportunities', 'action'=>'view_closed')); ?></li>
+</ul>
 <table cellpadding="0" cellspacing="0">
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>

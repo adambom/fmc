@@ -276,16 +276,37 @@ class JobsController extends AppController {
 			$this->set('results', $this->Job->find('all', array('conditions'=>$conditions)));
 		}
 	}
-	
+	function autocomplete_for_open_returns($q = null) {
+		$this->layout = 'ajax';
+		if(strlen($q)>2) {
+			$conditions = array(
+				"OR" => array (
+					"Job.name LIKE" => "%".$q."%",
+					"Job.jobnumber LIKE" => "%".$q."%",
+					"Company.name LIKE" => "%".$q."%",
+					"Location.name LIKE" => "%".$q."%",
+					"Jobtype.name LIKE" => "%".$q."%",
+				)
+			);
+			$this->set('q', $q);
+			$this->set('results', $this->Job->find('all', array('conditions'=>$conditions)));
+		}
+	}
 	function open_jobs($company_id = null) {
 		$this->layout = 'report';
 		$this->set('report_title', 'Works in Progress');
-		$this->Job->recursive = 0;
+		$this->Job->recursive = 1;
 		if($company_id) {
 			$conditions = array(
 				'Job.company_id' => $company_id,
 				'Job.status =' => 'In Progress'
 			);
+			$this->set('jobs', $this->Job->find(
+				'all', 
+				array('conditions' => $conditions)
+			));
+		} else {
+			$conditions = array('Job.status =' => 'In Progress');
 			$this->set('jobs', $this->Job->find(
 				'all', 
 				array('conditions' => $conditions)
