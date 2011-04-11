@@ -61,7 +61,7 @@ foreach ($productreturns as $productreturn):
 			<?php echo $productreturn['Productreturn']['fmc_return_no']; ?>
 		</td>
 		<td>
-			<?php echo $productreturn['Productreturn']['date']; ?>
+			<?php echo $time->format($format = "d-m-Y", $productreturn['Productreturn']['date']); ?>
 		</td>
 		<td>
 			<?php echo $html->link($productreturn['Job']['name'], array('controller' => 'jobs', 'action' => 'view', $productreturn['Job']['id'])); ?>

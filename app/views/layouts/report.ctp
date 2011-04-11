@@ -5,7 +5,7 @@
 	<?php echo $html->charset(); ?>
 	<title>
 		<?php __('FMC Technologies: Advanced Energy Solutions'); ?>
-		<?php echo $title_for_layout; ?>
+		<?php echo $report_title; ?>
 	</title>
 	<?php
 		echo $html->meta('icon');
@@ -19,7 +19,7 @@
 
 <body>
 	<div id="top">
-    	<h1><?php echo $title_for_layout; ?></h1>
+    	<h1><?php echo $report_title; ?></h1>
     </div>
     <div id="content">
 		<?php echo $content_for_layout; ?>

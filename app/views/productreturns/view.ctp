@@ -32,7 +32,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $productreturn['Productreturn']['date']; ?>
+			<?php echo $time->format($format = 'd-m-Y', $productreturn['Productreturn']['date']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Serial'); ?></dt>

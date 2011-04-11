@@ -5,7 +5,7 @@
 			if($(this).val() != '') {
 				id = $(this).attr('id').replace('stage', "");
 				stage = $(this).val()
-				$.post('change_stage/'+id+'/'+stage, function(success) {
+				$.post('/fmc/opportunities/change_stage/'+id+'/'+stage, function(success) {
 					if(success) {
 						$('#ajax_result').html('The opportunity stage was succesfully updated');
 					} else {
@@ -97,7 +97,7 @@ foreach ($results as $opportunity):
 			<?php echo $opportunity['Opportunity']['amount']; ?>
 		</td>
 		<td>
-			<?php echo $opportunity['Opportunity']['createddate']; ?>
+			<?php echo $time->format($format = "d-m-Y", $opportunity['Opportunity']['createddate']); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action' => 'view', $opportunity['Opportunity']['id'])); ?>

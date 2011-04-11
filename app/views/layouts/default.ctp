@@ -34,7 +34,7 @@
 	<?php
 		echo $html->meta('icon');
 
-		echo $html->css(array('fmc.generic', 'navigation', 'colorbox'));
+		echo $html->css(array('fmc.generic', 'navigation'));
 
 		echo $scripts_for_layout;
 		
@@ -44,8 +44,6 @@
 	?>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
-	
-	<?php echo $javascript->link('jquery.colorbox-min'); ?>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -57,7 +55,7 @@
 				var modelName = $(this).attr("rel");
 				$('#results_holder').hide();
 				if($(this).val().length > 2) {
-					$.get('/fmc/'+modelName+'/autocomplete/'+$(this).val(), function(results) {
+					$.get('/~Adam/fmc/'+modelName+'/autocomplete/'+$(this).val(), function(results) {
 						$('#results_holder').html(results);
 						$('#results_holder').show();
 					});
@@ -76,7 +74,6 @@
 				$(this).removeClass('predefined');
 				$(this).unbind('focus').unbind('blur');
 			});
-			$('a#search').colorbox({href:"/fmc/"+$(this).attr("modelName")+"/lookup/", width:"50%", height:"75%"});
 		});
 	</script>
 </head>
@@ -92,8 +89,8 @@
 							<td><input type="submit" name="submit" class="search_btn" value="Search"></td>
 							<td>
 								<select name="search_type" id="search_type">
+									<option id="Employee" value="employees" selected>Contacts</option>
 									<option id="Company" value="companies">Companies</option>
-									<option id="Employee" value="employees">Contacts</option>
 									<option id="Job" value="jobs">Jobs</option>
 									<option id="Opportunity" value="opportunities">Opportunities</option>
 									<option id="Part" value="parts">Parts</option>

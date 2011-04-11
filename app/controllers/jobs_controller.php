@@ -2,7 +2,7 @@
 class JobsController extends AppController {
 
 	var $name = 'Jobs';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form', 'Time');
 
 	function index($status = null) {
 		$this->Job->recursive = 0;
@@ -249,12 +249,13 @@ class JobsController extends AppController {
 			$this->Session->setFlash(__('Invalid id for Job', true));
 			$this->redirect(array('action'=>'index'));
 		} else {
+			$this->layout = 'ajax';
 			$this->Job->read('status', $id);
 			$this->Job->set('status', $status);
 			if($this->Job->save()) {
-				return true;
+				$this->Job->set('response', array('status' => 201, 'message' => 'Status updated succesfully'));
 			} else {
-				return false;
+				$this->Job->set('response', array('status' => 500, 'message' => 'There was an error'));
 			}
 		}
 		
@@ -276,12 +277,19 @@ class JobsController extends AppController {
 		}
 	}
 	
-	function openJobs($company_id = null) {
-		$this->Layout = 'report';
+	function open_jobs($company_id = null) {
+		$this->layout = 'report';
+		$this->set('report_title', 'Works in Progress');
 		$this->Job->recursive = 0;
 		if($company_id) {
-			$conditions = array('Job.company_id' => $company_id);
-			$this->set('jobs', $this->find('all', array($conditions)));
+			$conditions = array(
+				'Job.company_id' => $company_id,
+				'Job.status =' => 'In Progress'
+			);
+			$this->set('jobs', $this->Job->find(
+				'all', 
+				array('conditions' => $conditions)
+			));
 		}
 	}
 }

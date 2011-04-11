@@ -2,7 +2,7 @@
 class ProductreturnsController extends AppController {
 
 	var $name = 'Productreturns';
-	var $helpers = array('Html', 'Form', 'Html', 'Form', 'Ajax', 'Javascript');
+	var $helpers = array('Html', 'Form', 'Html', 'Form', 'Ajax', 'Javascript', 'Time');
 
 	function index() {
 		$this->Productreturn->recursive = 0;

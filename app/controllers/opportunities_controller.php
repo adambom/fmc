@@ -2,7 +2,7 @@
 class OpportunitiesController extends AppController {
 
 	var $name = 'Opportunities';
-	var $helpers = array('Html', 'Form');
+	var $helpers = array('Html', 'Form', 'Time');
 	var $paginate = array(
 		'order' => array(
 			'Opportunity.id' => 'desc'
@@ -23,7 +23,28 @@ class OpportunitiesController extends AppController {
 		}
 		$this->set('opportunity', $this->Opportunity->read(null, $id));
 	}
-
+	function view_open() {
+		$this->Opportunity->recursive = 0;
+		$stages = $this->Opportunity->Stage->find('list');
+		$this->set('stages', $stages);
+		$conditions = array(
+			"NOT" => array("Stage.name" => array("Closed Won", "Abandoned Sales Effort", "Closed Lost"))			
+		);
+		
+		$this->set('opportunities', $this->paginate('Opportunity', $conditions));
+		$this->render('index');
+	}
+	function view_closed() {
+		$this->Opportunity->recursive = 0;
+		$stages = $this->Opportunity->Stage->find('list');
+		$this->set('stages', $stages);
+		$conditions = array(
+			"Stage.name" => array("Closed Won", "Abandoned Sales Effort", "Closed Lost")			
+		);
+		
+		$this->set('opportunities', $this->paginate('Opportunity', $conditions));
+		$this->render('index');
+	}
 	function add() {
 		if (!empty($this->data)) {
 			$this->Opportunity->create();
@@ -108,12 +129,13 @@ class OpportunitiesController extends AppController {
 			$this->Session->setFlash(__('Invalid id for Opportunity', true));
 			$this->redirect(array('action'=>'index'));
 		} else {
+			$this->layout = 'ajax';
 			$this->Opportunity->read('stage_id', $id);
 			$this->Opportunity->set('stage_id', $stage_id);
 			if($this->Opportunity->save()) {
-				return true;
+				$this->Opportunity->set('response', array('status' => 201, 'message' => 'Stage updated succesfully'));
 			} else {
-				return false;
+				$this->Opportunity->set('response', array('status' => 500, 'message' => 'There was an error'));
 			}
 		}
 		

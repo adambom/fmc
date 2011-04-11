@@ -5,7 +5,7 @@
 			if($(this).val() != '') {
 				id = $(this).attr('id').replace('status', "");
 				status = $(this).val()
-				$.post('change_status/'+id+'/'+status, function(success) {
+				$.post('/fmc/jobs/change_status/'+id+'/'+status, function(success) {
 					if(success) {
 						$('#ajax_result').html('The job status was succesfully updated to '+status);
 					} else {
@@ -55,13 +55,13 @@ echo $paginator->counter(array(
 <table cellpadding="0" cellspacing="0">
 <tr>
 	<th><?php echo $paginator->sort('id');?></th>
-	<th><?php echo $paginator->sort('Job Number', 'jobnumber');?></th>	
-	<th><?php echo $paginator->sort('customer_id');?></th>
+	<th><?php echo $paginator->sort('Job Number', 'jobnumber');?></th>
+	<th><?php echo $paginator->sort('name');?></th>	
 	<th><?php echo $paginator->sort('location_id');?></th>
+	<th><?php echo $paginator->sort('customer_id');?></th>
 	<th><?php echo $paginator->sort('Job Type', 'jobtype_id');?></th>
 	<th><?php echo $paginator->sort('Job Category', 'jobcategory_id');?></th>	
-	<th><?php echo $paginator->sort('name');?></th>
-	<th><?php echo $paginator->sort('date');?></th>
+	<th><?php echo $paginator->sort('Close Date', 'date');?></th>
 	<th><?php echo $paginator->sort('status');?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
@@ -81,10 +81,13 @@ foreach ($results as $job):
 			<?php echo $job['Job']['jobnumber']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($job['Company']['name'], array('controller' => 'companies', 'action' => 'view', $job['Company']['id'])); ?>
+			<?php echo $job['Job']['name']; ?>
 		</td>
 		<td>
 			<?php echo $html->link($job['Location']['name'], array('controller' => 'locations', 'action' => 'view', $job['Location']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $html->link($job['Company']['name'], array('controller' => 'companies', 'action' => 'view', $job['Company']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($job['Jobtype']['name'], array('controller' => 'jobtypes', 'action' => 'view', $job['Jobtype']['id'])); ?>
@@ -93,10 +96,7 @@ foreach ($results as $job):
 			<?php echo $html->link($job['Jobcategory']['name'], array('controller' => 'jobcategories', 'action' => 'view', $job['Jobcategory']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $job['Job']['name']; ?>
-		</td>
-		<td>
-			<?php echo $job['Job']['date']; ?>
+			<?php echo $time->format("m-d-Y", $job['Job']['date']); ?>
 		</td>
 		<td>
 			<?php echo $form->select('status'.$job['Job']['id'], $status_options, $job['Job']['status'], array('class'=>'tbl_select', 'empty'=>false)); ?>
